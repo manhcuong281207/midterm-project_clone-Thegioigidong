@@ -27,6 +27,7 @@ export function initHeader(containerId = 'header-container') {
   const urlParams = new URLSearchParams(window.location.search);
   const currentCategory = urlParams.get('category') || '';
   const currentSearch = urlParams.get('search') || '';
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
   const categoriesNavHtml = CATEGORIES.map(cat => {
     const isActive = currentCategory === cat.id ? 'active' : '';
@@ -45,7 +46,7 @@ export function initHeader(containerId = 'header-container') {
       <div class="container header-top">
         <!-- Logo -->
         <a href="index.html" class="header-logo" title="Trang chủ Thế Giới Công Nghệ">
-          <span>TGDD</span>
+          <span>TGCN</span>
           <span class="header-logo__badge">Clone</span>
         </a>
 
@@ -98,9 +99,15 @@ export function initHeader(containerId = 'header-container') {
     <nav class="header-nav">
       <div class="container">
         <ul class="header-nav__list">
-          <li class="header-nav__item ${!currentCategory ? 'active' : ''}">
-            <a href="product.html">
+          <li class="header-nav__item ${currentPage === 'index.html' ? 'active' : ''}">
+            <a href="index.html">
               <span>🏠</span>
+              <span>Trang chủ</span>
+            </a>
+          </li>
+          <li class="header-nav__item ${currentPage === 'product.html' && !currentCategory ? 'active' : ''}">
+            <a href="product.html">
+              <span>📦</span>
               <span>Tất cả</span>
             </a>
           </li>

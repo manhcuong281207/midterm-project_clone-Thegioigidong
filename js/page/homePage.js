@@ -34,7 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Render Khối Sản Phẩm Nổi Bật theo chuyên mục
   renderFeaturedSections();
 
-  // 8. Gắn sự kiện mua hàng cho toàn bộ sản phẩm trên trang
+  // 8. Khởi tạo nút cuộn ngang cho các dải sản phẩm
+  initProductCarousels();
+
+  // 9. Gắn sự kiện mua hàng cho toàn bộ sản phẩm trên trang
   bindProductCardEvents(document);
 });
 
@@ -206,6 +209,7 @@ function initFlashSaleSection() {
       return;
     }
     grid.innerHTML = filtered.slice(0, 6).map(p => createProductCardHTML(p, { variant: 'flash-sale' })).join('');
+    resetProductCarousel(grid);
     bindProductCardEvents(grid);
   }
 
@@ -239,11 +243,13 @@ function initDealSection() {
       const cat = btn.dataset.cat;
       const list = cat === 'all' ? dealProducts : productService.filter(null, { categoryId: cat }).slice(0, 6);
       grid.innerHTML = list.map(p => createProductCardHTML(p, { variant: 'deal' })).join('');
+      resetProductCarousel(grid);
       bindProductCardEvents(grid);
     });
   }
 
   grid.innerHTML = dealProducts.map(p => createProductCardHTML(p, { variant: 'deal' })).join('');
+  resetProductCarousel(grid);
   bindProductCardEvents(grid);
 }
 
@@ -273,6 +279,7 @@ function renderFeaturedSections() {
   if (phoneGrid) {
     const phones = productService.filter(null, { categoryId: 'phone' }).slice(0, 6);
     phoneGrid.innerHTML = phones.map(p => createProductCardHTML(p)).join('');
+    resetProductCarousel(phoneGrid);
     bindProductCardEvents(phoneGrid);
   }
 
@@ -281,6 +288,7 @@ function renderFeaturedSections() {
   if (laptopGrid) {
     const laptops = productService.filter(null, { categoryId: 'laptop' }).slice(0, 6);
     laptopGrid.innerHTML = laptops.map(p => createProductCardHTML(p)).join('');
+    resetProductCarousel(laptopGrid);
     bindProductCardEvents(laptopGrid);
   }
 
@@ -289,6 +297,43 @@ function renderFeaturedSections() {
   if (recommendGrid) {
     const all = productService.getAll().slice(0, 12);
     recommendGrid.innerHTML = all.map(p => createProductCardHTML(p)).join('');
+    resetProductCarousel(recommendGrid);
     bindProductCardEvents(recommendGrid);
   }
+}
+
+/** Khởi tạo các nút điều hướng và đồng bộ trạng thái cuộn của carousel sản phẩm. */
+function initProductCarousels() {
+  document.querySelectorAll('[data-product-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.product-carousel__track');
+    const prevBtn = carousel.querySelector('.product-carousel-arrow--prev');
+    const nextBtn = carousel.querySelector('.product-carousel-arrow--next');
+    if (!track || !prevBtn || !nextBtn || carousel.dataset.bound === 'true') return;
+
+    const updateControls = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      carousel.classList.toggle('is-overflowing', maxScroll > 1);
+      prevBtn.disabled = track.scrollLeft <= 1;
+      nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
+    };
+
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -track.clientWidth * 0.85, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: track.clientWidth * 0.85, behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', updateControls, { passive: true });
+    window.addEventListener('resize', updateControls);
+    carousel.dataset.bound = 'true';
+    carousel.updateControls = updateControls;
+    updateControls();
+  });
+}
+
+/** Đưa dải về đầu sau khi nội dung thay đổi và cập nhật trạng thái hai nút. */
+function resetProductCarousel(track) {
+  if (!track) return;
+  track.scrollLeft = 0;
+  track.closest('[data-product-carousel]')?.updateControls?.();
 }

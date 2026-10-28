@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Thế Giới Công Nghệ - Hệ thống bán lẻ điện thoại, laptop, smartwatch, phụ kiện chính hãng giá sốc, trả góp 0%, giao hàng nhanh 2h.">
-  <title>Thế Giới Công Nghệ — Điện thoại, Laptop, Phụ kiện chính hãng</title>
+  <title>Thế Giới Công Nghệ</title>
 
   <!-- CSS Design Tokens & Layout -->
   <link rel="stylesheet" href="./css/global.css">
@@ -60,9 +60,13 @@
         <!-- Render tự động -->
       </div>
 
-      <!-- Lưới sản phẩm Flash Sale (6 cột) -->
-      <div class="product-grid" id="flashSaleGrid">
-        <!-- Render thẻ sản phẩm có thanh tiến độ -->
+      <!-- Carousel sản phẩm Flash Sale -->
+      <div class="product-carousel" data-product-carousel>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="product-grid product-carousel__track" id="flashSaleGrid">
+          <!-- Render thẻ sản phẩm có thanh tiến độ -->
+        </div>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--next" aria-label="Sản phẩm tiếp theo">&#10095;</button>
       </div>
 
       <div class="section-footer-cta">
@@ -87,9 +91,13 @@
         </div>
       </div>
 
-      <!-- Lưới sản phẩm thẻ trắng tương phản trên nền đỏ -->
-      <div class="product-grid" id="dealGrid">
-        <!-- Render tự động -->
+      <!-- Carousel sản phẩm thẻ trắng -->
+      <div class="product-carousel" data-product-carousel>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="product-grid product-carousel__track" id="dealGrid">
+          <!-- Render tự động -->
+        </div>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--next" aria-label="Sản phẩm tiếp theo">&#10095;</button>
       </div>
 
       <div style="text-align: center; margin-top: 20px;">
@@ -113,8 +121,12 @@
         </h2>
         <a href="product.html?category=phone" class="section-link">Xem tất cả điện thoại &rarr;</a>
       </div>
-      <div class="product-grid" id="phoneFeaturedGrid">
-        <!-- Render 6 điện thoại -->
+      <div class="product-carousel" data-product-carousel>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="product-grid product-carousel__track" id="phoneFeaturedGrid">
+          <!-- Render 6 điện thoại -->
+        </div>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--next" aria-label="Sản phẩm tiếp theo">&#10095;</button>
       </div>
     </section>
 
@@ -127,8 +139,12 @@
         </h2>
         <a href="product.html?category=laptop" class="section-link">Xem tất cả laptop &rarr;</a>
       </div>
-      <div class="product-grid" id="laptopFeaturedGrid">
-        <!-- Render 6 laptop -->
+      <div class="product-carousel" data-product-carousel>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="product-grid product-carousel__track" id="laptopFeaturedGrid">
+          <!-- Render 6 laptop -->
+        </div>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--next" aria-label="Sản phẩm tiếp theo">&#10095;</button>
       </div>
     </section>
 
@@ -141,8 +157,12 @@
         </h2>
         <a href="product.html" class="section-link">Xem toàn bộ kho hàng &rarr;</a>
       </div>
-      <div class="product-grid" id="recommendGrid">
-        <!-- Render danh sách sản phẩm gợi ý -->
+      <div class="product-carousel" data-product-carousel>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="product-grid product-carousel__track" id="recommendGrid">
+          <!-- Render danh sách sản phẩm gợi ý -->
+        </div>
+        <button type="button" class="product-carousel-arrow product-carousel-arrow--next" aria-label="Sản phẩm tiếp theo">&#10095;</button>
       </div>
     </section>
 
