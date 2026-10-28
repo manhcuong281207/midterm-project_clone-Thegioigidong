@@ -67,10 +67,10 @@ export function initFooter(containerId = 'footer-container') {
           </div>
           <h4>Kết nối với chúng tôi</h4>
           <div style="display: flex; gap: 10px; font-size: 18px;">
-            <a href="#" title="Facebook">🌐</a>
-            <a href="#" title="Youtube">📺</a>
-            <a href="#" title="Zalo">💬</a>
-            <a href="#" title="Tiktok">🎵</a>
+            <a href="https://www.thegioididong.com/" title="Facebook" target="_blank" rel="noopener noreferrer">🌐</a>
+            <a href="https://www.thegioididong.com/" title="Youtube" target="_blank" rel="noopener noreferrer">📺</a>
+            <a href="https://www.thegioididong.com/" title="Zalo" target="_blank" rel="noopener noreferrer">💬</a>
+            <a href="https://www.thegioididong.com/" title="Tiktok" target="_blank" rel="noopener noreferrer">🎵</a>
           </div>
         </div>
       </div>

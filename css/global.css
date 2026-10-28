@@ -22,8 +22,8 @@
   --color-border: #cbd5e1;
   --color-border-hover: #94a3b8;
 
-  --color-primary: #22d3ee;
-  --color-primary-hover: #67e8f9;
+  --color-primary: #ffd400;
+  --color-primary-hover: #ffcb05;
   --color-primary-soft: rgba(34, 211, 238, 0.14);
   --color-on-primary: #04222a;
 
@@ -269,7 +269,8 @@ ol {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--color-surface);
+  background: var(--color-primary);
+  color: #000000;
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -280,7 +281,7 @@ ol {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 10px 0;
+  padding: 15px 0;
 }
 
 .header-logo {
@@ -290,7 +291,7 @@ ol {
   font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 700;
-  color: var(--color-text);
+  color: #000000;
   text-transform: uppercase;
   letter-spacing: -0.5px;
   white-space: nowrap;
@@ -370,7 +371,7 @@ ol {
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-text);
+  color: #000000;
   transition: all var(--transition);
   position: relative;
   white-space: nowrap;
@@ -397,8 +398,8 @@ ol {
 
 /* Category Navigation (hàng danh mục dưới header) */
 .header-nav {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background: var(--color-primary);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .header-nav__list {
@@ -422,15 +423,15 @@ ol {
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: #000000;
   white-space: nowrap;
   transition: all var(--transition);
 }
 
 .header-nav__item a:hover,
 .header-nav__item.active a {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  background: rgba(255, 255, 255, 0.55);
+  color: #000000;
   font-weight: 600;
 }
 
