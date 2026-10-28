@@ -104,11 +104,12 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 34490000,
     originalPrice: 34990000,
-    image: 'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-16-pro-max.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/2.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-16-pro-max.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-16-pro-max-2.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-16-pro-max-3.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-16-pro-max-4.png'
     ],
     rating: 4.9,
     reviewCount: 342,
@@ -128,11 +129,12 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 27990000,
     originalPrice: 33990000,
-    image: 'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/s/ss-s24-ultra-xam-222.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/1.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/2.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/s/ss-s24-ultra-xam-222.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_1.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_2.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_10.png'
     ],
     rating: 4.8,
     reviewCount: 215,
@@ -152,11 +154,12 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Xiaomi',
     price: 28490000,
     originalPrice: 32990000,
-    image: 'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/x/i/xiaomi-14-ultra_3.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/1.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/2.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/x/i/xiaomi-14-ultra_3.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/x/i/xiaomi-14-ultra_6.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/x/i/xiaomi-14-ultra_2__2.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/x/i/xiaomi-14-ultra_9.png'
     ],
     rating: 4.7,
     reviewCount: 98,
@@ -176,11 +179,12 @@ export const DEFAULT_PRODUCTS = [
     brand: 'OPPO',
     price: 29990000,
     originalPrice: 31990000,
-    image: 'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/d/i/dien-thoai-oppo-find-x8-pro.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/1.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/2.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/d/i/dien-thoai-oppo-find-x8-pro.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/d/i/dien-thoai-oppo-find-x8-pro_1_.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/d/i/dien-thoai-oppo-find-x8-pro_2_.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/d/i/dien-thoai-oppo-find-x8_4__1_2.png'
     ],
     rating: 4.8,
     reviewCount: 64,
@@ -200,11 +204,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 9490000,
     originalPrice: 9990000,
-    image: 'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/d/i/dien-thoai-samsung-galaxy-a57-2.jpg',
     images: [
-      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/1.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/2.webp',
-      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/d/i/dien-thoai-samsung-galaxy-a57-2.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/l/slider-samsung-galaxy-a57-8gb-128gb.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/l/slider-samsung-galaxy-a57-8gb-128gb-1.jpg'
     ],
     rating: 4.6,
     reviewCount: 412,
@@ -226,11 +230,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 27990000,
     originalPrice: 29990000,
-    image: 'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/m/a/macbook_13_17.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/m/a/macbook_13_17.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/0/1/01_6_4.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/0/2/02_2_.png'
     ],
     rating: 4.9,
     reviewCount: 180,
@@ -250,11 +254,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Asus',
     price: 16990000,
     originalPrice: 19490000,
-    image: 'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/l/a/laptop_asus_vivobook_16_x1607ca-mb399w_-_1.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/l/a/laptop_asus_vivobook_16_x1607ca-mb399w_-_1.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/l/a/laptop_asus_vivobook_16_x1607ca-mb399w_-_2.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/l/a/laptop_asus_vivobook_16_x1607ca-mb399w_-_3.png'
     ],
     rating: 4.7,
     reviewCount: 95,
@@ -274,11 +278,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Lenovo',
     price: 36990000,
     originalPrice: 40990000,
-    image: 'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/6/8/68303875-be13-4a79-9882-2c015ab4ba3b.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/6/8/68303875-be13-4a79-9882-2c015ab4ba3b.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/c/4/c44909fa-7d43-4cf3-91bd-45099dcf8cd3.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/6/e/6eca05e5-b7f8-4e3e-ab6c-c746501ca7de.png'
     ],
     rating: 4.9,
     reviewCount: 140,
@@ -298,11 +302,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'HP',
     price: 15490000,
     originalPrice: 17490000,
-    image: 'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/m/a/macbook_13_17.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp',
-      'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/m/a/macbook_13_17.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/0/1/01_6_4.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/0/2/02_2_.png'
     ],
     rating: 4.6,
     reviewCount: 78,
@@ -324,11 +328,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 27990000,
     originalPrice: 28990000,
-    image: 'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/ipad-pro-m5.jpg',
     images: [
-      'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/1.webp',
-      'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/2.webp',
-      'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/ipad-pro-m5.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/ipad-pro-m5-2.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/ipad_pro_13-in_m5_wifi_space_black_pdp_image_position_3__vn-vi.png'
     ],
     rating: 4.9,
     reviewCount: 88,
@@ -348,11 +352,12 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 8490000,
     originalPrice: 9990000,
-    image: 'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung-galaxy-tab-s9-fe-mint-13_1.jpg',
     images: [
-      'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/1.webp',
-      'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/2.webp',
-      'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung-galaxy-tab-s9-fe-mint-13_1.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/g/a/galaxy_tab_s9_fe_wifi_-_2_1__1.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/g/a/galaxy_tab_s9_fe_wifi_-_4_1.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/g/a/galaxy_tab_s9_fe_wifi_-_5_1.png'
     ],
     rating: 4.7,
     reviewCount: 165,
@@ -374,11 +379,12 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 11290000,
     originalPrice: 11990000,
-    image: 'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-watch-series-10-46mm_1_.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/1.webp',
-      'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/2.webp',
-      'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-watch-series-10-46mm_1_.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-watch-series-10-46mm_2_.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-watch-series-10-46mm_3_.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-watch-series-10-46mm_4_.png'
     ],
     rating: 4.8,
     reviewCount: 130,
@@ -398,11 +404,12 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 8990000,
     originalPrice: 9490000,
-    image: 'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/m/sm-l300_001_front_cream_240429.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/1.webp',
-      'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/2.webp',
-      'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/m/sm-l300_001_front_cream_240429.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/m/sm-l300_002_front2_cream_240429.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/m/sm-l300_003_l_perspective_cream_240429.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/w/a/watch7_-_onepage_3.jpg'
     ],
     rating: 4.7,
     reviewCount: 82,
@@ -422,11 +429,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Garmin',
     price: 7490000,
     originalPrice: 7990000,
-    image: 'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/m/sm-l305_001_front_cream_240429.png',
     images: [
-      'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/1.webp',
-      'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/2.webp',
-      'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/m/sm-l305_001_front_cream_240429.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/s/m/sm-l305_003_l_perspective_cream_240429.png',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/w/a/watch7_-_onepage_3.jpg'
     ],
     rating: 4.9,
     reviewCount: 94,
@@ -448,11 +455,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 5490000,
     originalPrice: 6190000,
-    image: 'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-sac-co-day.jpg',
     images: [
-      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/1.webp',
-      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/2.webp',
-      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/3.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-sac-co-day.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-1.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-2.jpg'
     ],
     rating: 4.9,
     reviewCount: 520,
@@ -472,10 +479,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Anker',
     price: 890000,
     originalPrice: 1200000,
-    image: 'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-4-type-c.jpg',
     images: [
-      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/1.webp',
-      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/2.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-4-type-c.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-5.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-1.jpg'
     ],
     rating: 4.8,
     reviewCount: 230,
@@ -495,10 +503,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Baseus',
     price: 490000,
     originalPrice: 650000,
-    image: 'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp',
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-2.jpg',
     images: [
-      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/1.webp',
-      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/2.webp'
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-2.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-6.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-5-7.jpg'
     ],
     rating: 4.7,
     reviewCount: 145,
