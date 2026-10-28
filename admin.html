@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trang quản trị hệ thống Thế Giới Công Nghệ. Quản lý toàn diện sản phẩm, phân tích tồn kho, thêm, sửa, xóa (CRUD) và kiểm tra dữ liệu.">
+  <title>Quản Trị Hệ Thống (Admin Dashboard) — Thế Giới Công Nghệ</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout" id="adminApp">
+    
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <!-- Sidebar Brand -->
+      <div class="admin-sidebar__brand">
+        <a href="admin.html" class="admin-brand-link">
+          <div class="admin-brand-logo">TGDD</div>
+          <div class="admin-brand-info">
+            <span class="admin-brand-title">Admin Hub</span>
+            <span class="admin-brand-badge">Quản Trị</span>
+          </div>
+        </a>
+        <button type="button" class="admin-sidebar-close" id="btnSidebarClose" title="Đóng menu">✕</button>
+      </div>
+
+      <!-- Sidebar Navigation Menu -->
+      <nav class="admin-sidebar__nav">
+        <div class="admin-nav-group-label">ĐIỀU HƯỚNG</div>
+        <ul class="admin-nav-list">
+          <li class="admin-nav-item active" id="navItemDashboard">
+            <a href="#dashboard" id="navLinkDashboard">
+              <span class="admin-nav-icon">📊</span>
+              <span class="admin-nav-text">Tổng Quan Kho Hàng</span>
+            </a>
+          </li>
+          <li class="admin-nav-item" id="navItemProducts">
+            <a href="#products" id="navLinkProducts">
+              <span class="admin-nav-icon">📦</span>
+              <span class="admin-nav-text">Quản Lý Sản Phẩm</span>
+              <span class="admin-badge-count" id="sidebarProductCount">0</span>
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="javascript:void(0)" id="navLinkAddProduct">
+              <span class="admin-nav-icon">➕</span>
+              <span class="admin-nav-text">Thêm Sản Phẩm Mới</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="admin-nav-group-label">HỆ THỐNG</div>
+        <ul class="admin-nav-list">
+          <li class="admin-nav-item">
+            <a href="javascript:void(0)" id="navLinkResetData">
+              <span class="admin-nav-icon">🔄</span>
+              <span class="admin-nav-text">Khôi Phục Mẫu Gốc</span>
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="index.html" target="_blank" id="navLinkStorefront">
+              <span class="admin-nav-icon">🌐</span>
+              <span class="admin-nav-text">Xem Cửa Hàng</span>
+              <span class="admin-external-icon">↗</span>
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="cart.html" target="_blank">
+              <span class="admin-nav-icon">🛒</span>
+              <span class="admin-nav-text">Xem Giỏ Hàng</span>
+              <span class="admin-external-icon">↗</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer / Admin Profile -->
+      <div class="admin-sidebar__footer">
+        <div class="admin-profile-card">
+          <div class="admin-profile-avatar">AD</div>
+          <div class="admin-profile-info">
+            <div class="admin-profile-name">Quản Trị Viên</div>
+            <div class="admin-profile-status">
+              <span class="status-dot"></span> Đang trực tuyến
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Sidebar Backdrop for Mobile -->
+    <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- ================= MAIN CONTENT AREA ================= -->
+    <div class="admin-main">
+
+      <!-- Topbar Header -->
+      <header class="admin-topbar">
+        <div class="admin-topbar__left">
+          <button type="button" class="admin-toggle-btn" id="btnSidebarToggle" aria-label="Mở Menu" title="Mở menu">
+            ☰
+          </button>
+          <div class="admin-topbar__title-wrap">
+            <h1 class="admin-topbar__title" id="pageHeaderTitle">Bảng Điều Khiển Quản Trị</h1>
+            <span class="admin-topbar__subtitle">Thế Giới Công Nghệ — Hệ thống CRUD & Kiểm tra dữ liệu</span>
+          </div>
+        </div>
+
+        <div class="admin-topbar__right">
+          <!-- Live Clock -->
+          <div class="admin-live-clock" id="liveClock" title="Thời gian hệ thống">
+            <span class="clock-icon">🕒</span>
+            <span id="clockText">--:--:--</span>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <button type="button" class="btn-admin-action btn-admin-reset" id="btnTopResetData" title="Khôi phục danh sách sản phẩm mẫu">
+            <span>🔄</span>
+            <span class="btn-text-desktop">Reset Mẫu</span>
+          </button>
+
+          <button type="button" class="btn-admin-action btn-admin-primary" id="btnTopAddProduct">
+            <span>➕</span>
+            <span class="btn-text-desktop">Thêm Sản Phẩm</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Workspace -->
+      <main class="admin-content" id="adminContent">
+
+        <!-- ================= 1. STATS OVERVIEW SECTION ================= -->
+        <section class="admin-section" id="sectionStats">
+          <div class="admin-section-header">
+            <div class="section-title-wrap">
+              <h2 class="section-title">📊 Tổng Quan Dữ Liệu Kho Hàng</h2>
+              <p class="section-desc">Thống kê nhanh số lượng sản phẩm, phân bố ngành hàng và tình trạng tồn kho</p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <!-- Tổng sản phẩm -->
+            <div class="stat-card stat-card--primary">
+              <div class="stat-card__icon">📦</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Tổng Sản Phẩm</div>
+                <div class="stat-card__value" id="statTotalProducts">0</div>
+                <div class="stat-card__hint">Đang quản lý trong LocalStorage</div>
+              </div>
+            </div>
+
+            <!-- Điện thoại -->
+            <div class="stat-card">
+              <div class="stat-card__icon">📱</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Điện Thoại</div>
+                <div class="stat-card__value" id="statPhones">0</div>
+                <div class="stat-card__hint" id="statPhoneRatio">0% danh mục</div>
+              </div>
+            </div>
+
+            <!-- Laptop -->
+            <div class="stat-card">
+              <div class="stat-card__icon">💻</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Laptop</div>
+                <div class="stat-card__value" id="statLaptops">0</div>
+                <div class="stat-card__hint" id="statLaptopRatio">0% danh mục</div>
+              </div>
+            </div>
+
+            <!-- Tablet -->
+            <div class="stat-card">
+              <div class="stat-card__icon">📟</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Máy Tính Bảng</div>
+                <div class="stat-card__value" id="statTablets">0</div>
+                <div class="stat-card__hint" id="statTabletRatio">0% danh mục</div>
+              </div>
+            </div>
+
+            <!-- Smartwatch & Phụ kiện -->
+            <div class="stat-card">
+              <div class="stat-card__icon">⌚</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Đồng Hồ & Phụ Kiện</div>
+                <div class="stat-card__value" id="statOthers">0</div>
+                <div class="stat-card__hint" id="statOthersRatio">0% danh mục</div>
+              </div>
+            </div>
+
+            <!-- Flash Sale -->
+            <div class="stat-card stat-card--warning">
+              <div class="stat-card__icon">⚡</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Đang Flash Sale</div>
+                <div class="stat-card__value" id="statFlashSales">0</div>
+                <div class="stat-card__hint">Hiển thị khung giờ vàng</div>
+              </div>
+            </div>
+
+            <!-- Sắp hết hàng -->
+            <div class="stat-card stat-card--danger">
+              <div class="stat-card__icon">⚠️</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Sắp Hết / Hết Hàng</div>
+                <div class="stat-card__value" id="statLowStock">0</div>
+                <div class="stat-card__hint">Tồn kho ≤ 5 sản phẩm</div>
+              </div>
+            </div>
+
+            <!-- Tổng giá trị kho -->
+            <div class="stat-card stat-card--success">
+              <div class="stat-card__icon">💰</div>
+              <div class="stat-card__content">
+                <div class="stat-card__title">Tổng Giá Trị Kho</div>
+                <div class="stat-card__value" id="statTotalStockValue">0₫</div>
+                <div class="stat-card__hint">Tổng ước tính (giá × tồn)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 2. PRODUCT MANAGEMENT CRUD SECTION ================= -->
+        <section class="admin-section" id="sectionProducts">
+          <div class="admin-section-header">
+            <div class="section-title-wrap">
+              <h2 class="section-title">📦 Quản Lý Danh Sách Sản Phẩm</h2>
+              <p class="section-desc">Thực hiện thêm mới, xem, tìm kiếm, chỉnh sửa và xóa (CRUD) dữ liệu sản phẩm</p>
+            </div>
+            <button type="button" class="btn-admin-action btn-admin-primary" id="btnSectionAddProduct">
+              <span>➕ Thêm Mới Sản Phẩm</span>
+            </button>
+          </div>
+
+          <!-- Toolbar: Search, Filters & Sorters -->
+          <div class="admin-toolbar">
+            <!-- Search Input -->
+            <div class="toolbar-search">
+              <span class="search-icon">🔍</span>
+              <input 
+                type="text" 
+                id="adminSearchInput" 
+                class="admin-search-field" 
+                placeholder="Tìm kiếm sản phẩm theo tên, hãng sản xuất, cấu hình..."
+                autocomplete="off"
+              >
+              <button type="button" class="btn-search-clear" id="btnClearSearch" title="Xóa từ khóa">✕</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="toolbar-filters">
+              <!-- Category Filter -->
+              <div class="filter-group">
+                <label for="adminCategoryFilter" class="filter-label">Danh mục:</label>
+                <select id="adminCategoryFilter" class="admin-select">
+                  <option value="all">Tất cả danh mục</option>
+                  <option value="phone">📱 Điện thoại</option>
+                  <option value="laptop">💻 Laptop</option>
+                  <option value="tablet">📟 Máy tính bảng</option>
+                  <option value="watch">⌚ Đồng hồ thông minh</option>
+                  <option value="accessory">🎧 Phụ kiện</option>
+                </select>
+              </div>
+
+              <!-- Stock Filter -->
+              <div class="filter-group">
+                <label for="adminStockFilter" class="filter-label">Tồn kho:</label>
+                <select id="adminStockFilter" class="admin-select">
+                  <option value="all">Tất cả kho</option>
+                  <option value="in_stock">Còn hàng (> 5)</option>
+                  <option value="low_stock">Sắp hết (1 - 5)</option>
+                  <option value="out_of_stock">Hết hàng (0)</option>
+                </select>
+              </div>
+
+              <!-- Sort Filter -->
+              <div class="filter-group">
+                <label for="adminSortBy" class="filter-label">Sắp xếp:</label>
+                <select id="adminSortBy" class="admin-select">
+                  <option value="newest">Mới cập nhật</option>
+                  <option value="price-asc">Giá: Thấp đến cao</option>
+                  <option value="price-desc">Giá: Cao đến thấp</option>
+                  <option value="stock-desc">Tồn kho: Nhiều nhất</option>
+                  <option value="stock-asc">Tồn kho: Ít nhất</option>
+                  <option value="name-asc">Tên sản phẩm: A &rarr; Z</option>
+                </select>
+              </div>
+
+              <!-- Reset Filters -->
+              <button type="button" class="btn-admin-reset-filter" id="btnResetFilters" title="Đặt lại bộ lọc về mặc định">
+                <span>🔄 Đặt Lại</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Filter Status Bar -->
+          <div class="admin-status-bar" id="adminStatusBar">
+            <div class="status-summary">
+              Hiển thị: <strong id="filterMatchCount">0</strong> / <span id="filterTotalCount">0</span> sản phẩm
+              <span id="activeFilterTags" class="active-filter-tags"></span>
+            </div>
+          </div>
+
+          <!-- Data Table Container -->
+          <div class="admin-table-card">
+            <div class="admin-table-responsive">
+              <table class="admin-table" id="adminProductTable">
+                <thead>
+                  <tr>
+                    <th style="width: 50px; text-align: center;">STT</th>
+                    <th style="width: 70px; text-align: center;">Ảnh</th>
+                    <th style="min-width: 220px;">Tên Sản Phẩm</th>
+                    <th style="width: 120px;">Danh Mục</th>
+                    <th style="width: 100px;">Hãng</th>
+                    <th style="width: 130px; text-align: right;">Giá Bán</th>
+                    <th style="width: 120px; text-align: right;">Giá Gốc</th>
+                    <th style="width: 100px; text-align: center;">Tồn Kho</th>
+                    <th style="width: 100px; text-align: center;">Flash Sale</th>
+                    <th style="width: 130px; text-align: center;">Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProductTableBody">
+                  <!-- Render động qua adminPage.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty State khi không tìm thấy kết quả -->
+            <div class="table-empty-state" id="tableEmptyState" style="display: none;">
+              <div class="empty-icon">🔍</div>
+              <h3>Không tìm thấy sản phẩm nào!</h3>
+              <p>Hãy thử thay đổi từ khóa tìm kiếm hoặc bỏ bớt các tiêu chí lọc đang chọn.</p>
+              <button type="button" class="btn-admin-primary" id="btnEmptyResetFilter">
+                Đặt lại toàn bộ bộ lọc
+              </button>
+            </div>
+
+            <!-- Table Pagination Bar -->
+            <div class="admin-table-footer" id="tableFooter">
+              <div class="table-page-size">
+                <span>Hiển thị mỗi trang:</span>
+                <select id="adminPageSize" class="select-page-size">
+                  <option value="10" selected>10 sản phẩm</option>
+                  <option value="20">20 sản phẩm</option>
+                  <option value="50">50 sản phẩm</option>
+                  <option value="1000">Tất cả</option>
+                </select>
+              </div>
+
+              <div class="table-pagination" id="adminPagination">
+                <button type="button" class="btn-page-nav" id="btnPrevPage" title="Trang trước" disabled>&lsaquo;</button>
+                <div class="pagination-numbers" id="paginationNumbers">
+                  <!-- Số trang render tự động -->
+                </div>
+                <button type="button" class="btn-page-nav" id="btnNextPage" title="Trang sau" disabled>&rsaquo;</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: THÊM / SỬA SẢN PHẨM ================= -->
+  <div class="admin-modal-overlay" id="productModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="admin-modal">
+      <div class="admin-modal__header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon" id="modalIcon">➕</span>
+          <h2 class="modal-title" id="modalTitle">Thêm Sản Phẩm Mới</h2>
+        </div>
+        <button type="button" class="modal-close-btn" id="btnCloseProductModal" title="Đóng modal">✕</button>
+      </div>
+
+      <form id="productForm" class="admin-form" novalidate>
+        <input type="hidden" id="formProductId" name="id">
+
+        <div class="admin-modal__body">
+          <div class="form-grid">
+
+            <!-- CỘT TRÁI: THÔNG TIN CƠ BẢN -->
+            <div class="form-col">
+              <!-- Tên sản phẩm -->
+              <div class="form-group" id="group_name">
+                <label for="inputProductName" class="form-label">
+                  Tên sản phẩm <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="inputProductName" 
+                  name="name" 
+                  class="form-control" 
+                  placeholder="VD: iPhone 16 Pro Max 256GB"
+                  required
+                >
+                <div class="form-error-msg" id="error_name"></div>
+              </div>
+
+              <!-- Danh mục & Hãng -->
+              <div class="form-row">
+                <div class="form-group" id="group_categoryId">
+                  <label for="inputProductCategory" class="form-label">
+                    Danh mục <span class="required">*</span>
+                  </label>
+                  <select id="inputProductCategory" name="categoryId" class="form-control" required>
+                    <option value="">-- Chọn danh mục --</option>
+                    <option value="phone">📱 Điện thoại</option>
+                    <option value="laptop">💻 Laptop</option>
+                    <option value="tablet">📟 Máy tính bảng</option>
+                    <option value="watch">⌚ Smartwatch</option>
+                    <option value="accessory">🎧 Phụ kiện</option>
+                  </select>
+                  <div class="form-error-msg" id="error_categoryId"></div>
+                </div>
+
+                <div class="form-group" id="group_brand">
+                  <label for="inputProductBrand" class="form-label">
+                    Thương hiệu / Hãng <span class="required">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    id="inputProductBrand" 
+                    name="brand" 
+                    class="form-control" 
+                    placeholder="VD: Apple, Samsung, Asus..."
+                    list="brandSuggestions"
+                    required
+                  >
+                  <datalist id="brandSuggestions">
+                    <option value="Apple">
+                    <option value="Samsung">
+                    <option value="Xiaomi">
+                    <option value="OPPO">
+                    <option value="Asus">
+                    <option value="Lenovo">
+                    <option value="Dell">
+                    <option value="HP">
+                    <option value="Garmin">
+                    <option value="Sony">
+                    <option value="JBL">
+                  </datalist>
+                  <div class="form-error-msg" id="error_brand"></div>
+                </div>
+              </div>
+
+              <!-- Giá bán & Giá gốc -->
+              <div class="form-row">
+                <div class="form-group" id="group_price">
+                  <label for="inputProductPrice" class="form-label">
+                    Giá bán ưu đãi (₫) <span class="required">*</span>
+                  </label>
+                  <input 
+                    type="number" 
+                    id="inputProductPrice" 
+                    name="price" 
+                    class="form-control" 
+                    placeholder="VD: 34990000"
+                    min="1000" 
+                    step="1000"
+                    required
+                  >
+                  <div class="form-error-msg" id="error_price"></div>
+                </div>
+
+                <div class="form-group" id="group_originalPrice">
+                  <label for="inputProductOriginalPrice" class="form-label">
+                    Giá gốc niêm yết (₫)
+                  </label>
+                  <input 
+                    type="number" 
+                    id="inputProductOriginalPrice" 
+                    name="originalPrice" 
+                    class="form-control" 
+                    placeholder="VD: 36990000"
+                    min="1000"
+                    step="1000"
+                  >
+                  <div class="form-error-msg" id="error_originalPrice"></div>
+                </div>
+              </div>
+
+              <!-- Tồn kho & Đánh giá -->
+              <div class="form-row">
+                <div class="form-group" id="group_stock">
+                  <label for="inputProductStock" class="form-label">
+                    Số lượng tồn kho <span class="required">*</span>
+                  </label>
+                  <input 
+                    type="number" 
+                    id="inputProductStock" 
+                    name="stock" 
+                    class="form-control" 
+                    placeholder="VD: 25"
+                    min="0"
+                    step="1"
+                    value="10"
+                    required
+                  >
+                  <div class="form-error-msg" id="error_stock"></div>
+                </div>
+
+                <div class="form-group" id="group_rating">
+                  <label for="inputProductRating" class="form-label">
+                    Điểm đánh giá sao (1 - 5)
+                  </label>
+                  <input 
+                    type="number" 
+                    id="inputProductRating" 
+                    name="rating" 
+                    class="form-control" 
+                    placeholder="VD: 4.9"
+                    min="1"
+                    max="5"
+                    step="0.1"
+                    value="5.0"
+                  >
+                  <div class="form-error-msg" id="error_rating"></div>
+                </div>
+              </div>
+
+              <!-- Checkboxes: Flash Sale & Nổi Bật -->
+              <div class="form-checkbox-group">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="inputProductFlashSale" name="isFlashSale">
+                  <span class="custom-checkbox-mark"></span>
+                  <span class="checkbox-text">⚡ Kích hoạt Flash Sale (Giá sốc hôm nay)</span>
+                </label>
+
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="inputProductFeatured" name="isFeatured" checked>
+                  <span class="custom-checkbox-mark"></span>
+                  <span class="checkbox-text">⭐ Đánh dấu là Sản Phẩm Nổi Bật</span>
+                </label>
+              </div>
+
+            </div>
+
+            <!-- CỘT PHẢI: ẢNH & CHI TIẾT -->
+            <div class="form-col">
+              <!-- Link hình ảnh -->
+              <div class="form-group" id="group_image">
+                <label for="inputProductImage" class="form-label">
+                  Link URL hình ảnh sản phẩm <span class="required">*</span>
+                </label>
+                <div class="image-input-wrap">
+                  <input 
+                    type="url" 
+                    id="inputProductImage" 
+                    name="image" 
+                    class="form-control" 
+                    placeholder="https://cdn.tgdd.vn/... hoặc link ảnh bất kỳ"
+                    required
+                  >
+                  <button type="button" class="btn-preview-refresh" id="btnRefreshPreview" title="Tải lại ảnh xem trước">
+                    🔄 Xem thử
+                  </button>
+                </div>
+                <div class="form-error-msg" id="error_image"></div>
+              </div>
+
+              <!-- Khung Live Preview ảnh (Có Fallback chống vỡ layout) -->
+              <div class="image-preview-card">
+                <div class="image-preview-label">Khung hiển thị thực tế:</div>
+                <div class="image-preview-box" id="modalImagePreviewBox">
+                  <div class="image-preview-placeholder" id="modalImagePlaceholder">
+                    <span class="placeholder-icon" id="modalPlaceholderIcon">📦</span>
+                    <span class="placeholder-text" id="modalPlaceholderName">Chưa có ảnh</span>
+                    <span class="placeholder-sub">Ảnh sẽ tự động hiển thị hoặc dùng icon dự phòng</span>
+                  </div>
+                  <img 
+                    src="" 
+                    alt="Xem trước ảnh" 
+                    id="modalPreviewImg" 
+                    class="preview-img"
+                    style="display: none;"
+                  >
+                </div>
+              </div>
+
+              <!-- Nhãn / Badges -->
+              <div class="form-group" id="group_labels">
+                <label for="inputProductLabels" class="form-label">
+                  Nhãn hiển thị khuyến mãi (cách nhau bởi dấu phẩy)
+                </label>
+                <input 
+                  type="text" 
+                  id="inputProductLabels" 
+                  name="labels" 
+                  class="form-control" 
+                  placeholder="VD: Trả góp 0%, Giảm sốc 2 triệu, Tặng kèm củ sạc"
+                >
+                <div class="form-hint">Nhập các nhãn ngắn gọn xuất hiện góc sản phẩm</div>
+              </div>
+
+              <!-- Cấu hình Specs -->
+              <div class="form-group" id="group_specs">
+                <label for="inputProductSpecs" class="form-label">
+                  Thông số nổi bật (cách nhau bởi dấu phẩy)
+                </label>
+                <input 
+                  type="text" 
+                  id="inputProductSpecs" 
+                  name="specs" 
+                  class="form-control" 
+                  placeholder="VD: RAM 8GB, SSD 512GB, Màn hình 6.7 inch OLED, Pin 5000mAh"
+                >
+                <div class="form-hint">Hiển thị dạng chip thông số trên thẻ sản phẩm</div>
+              </div>
+
+              <!-- Mô tả sản phẩm -->
+              <div class="form-group" id="group_description">
+                <label for="inputProductDescription" class="form-label">
+                  Mô tả vắn tắt sản phẩm
+                </label>
+                <textarea 
+                  id="inputProductDescription" 
+                  name="description" 
+                  class="form-control form-textarea" 
+                  rows="3" 
+                  placeholder="Mô tả các điểm mạnh, tính năng nổi bật..."
+                ></textarea>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="admin-modal__footer">
+          <button type="button" class="btn-modal-cancel" id="btnCancelProductModal">Hủy Bỏ</button>
+          <button type="submit" class="btn-modal-save" id="btnSaveProduct">
+            <span class="save-icon">💾</span>
+            <span id="btnSaveText">Lưu Sản Phẩm</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: XÁC NHẬN XÓA ================= -->
+  <div class="admin-modal-overlay" id="deleteModalOverlay" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+    <div class="admin-modal admin-modal--sm">
+      <div class="delete-dialog-content">
+        <div class="delete-dialog-icon">🗑️</div>
+        <h3 class="delete-dialog-title" id="deleteModalTitle">Xác Nhận Xóa Sản Phẩm</h3>
+        <p class="delete-dialog-desc">
+          Bạn có chắc chắn muốn xóa sản phẩm dưới đây không? Thao tác này sẽ xóa vĩnh viễn khỏi LocalStorage và không thể hoàn tác.
+        </p>
+
+        <div class="delete-product-preview">
+          <div class="delete-preview-thumb" id="deleteProductThumb">📦</div>
+          <div class="delete-preview-info">
+            <strong id="deleteProductName">Tên sản phẩm</strong>
+            <span id="deleteProductId" class="delete-product-id">ID: ...</span>
+            <span id="deleteProductPrice" class="delete-product-price">0₫</span>
+          </div>
+        </div>
+
+        <div class="delete-dialog-actions">
+          <button type="button" class="btn-modal-cancel" id="btnCancelDelete">Không, giữ lại</button>
+          <button type="button" class="btn-modal-danger" id="btnConfirmDelete">
+            <span>🗑️ Xóa Vĩnh Viễn</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: XÁC NHẬN RESET DATA ================= -->
+  <div class="admin-modal-overlay" id="resetModalOverlay" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle">
+    <div class="admin-modal admin-modal--sm">
+      <div class="delete-dialog-content">
+        <div class="reset-dialog-icon">🔄</div>
+        <h3 class="delete-dialog-title" id="resetModalTitle">Khôi Phục Dữ Liệu Gốc?</h3>
+        <p class="delete-dialog-desc">
+          Toàn bộ các sản phẩm bạn đã thêm mới, sửa đổi hoặc xóa sẽ được khôi phục về danh sách <strong>20 sản phẩm mẫu ban đầu</strong> của Thế Giới Công Nghệ.
+        </p>
+        <div class="delete-dialog-actions">
+          <button type="button" class="btn-modal-cancel" id="btnCancelReset">Hủy Bỏ</button>
+          <button type="button" class="btn-modal-warning" id="btnConfirmReset">
+            <span>🔄 Khôi Phục Ngay</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC ADMIN TRANG -->
+  <script type="module" src="./js/page/adminPage.js"></script>
+</body>
+</html>

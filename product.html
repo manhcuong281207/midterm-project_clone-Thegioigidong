@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Danh sách sản phẩm công nghệ chính hãng - Điện thoại, Laptop, Tablet, Smartwatch, Phụ kiện giá tốt nhất tại Thế Giới Công Nghệ.">
+  <title>Danh Sách Sản Phẩm — Thế Giới Công Nghệ</title>
+
+  <!-- CSS Design Tokens & Stylesheet riêng -->
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/products.css">
+</head>
+<body>
+
+  <!-- 1. HEADER GHIM DÙNG CHUNG -->
+  <div id="header-container"></div>
+
+  <!-- NỘI DUNG CHÍNH TRANG SẢN PHẨM -->
+  <main class="container">
+
+    <!-- 2. BREADCRUMB ĐIỀU HƯỚNG -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="breadcrumb-separator">&gt;</span>
+      <span id="breadcrumbCurrent">Tất cả sản phẩm</span>
+    </nav>
+
+    <!-- 3. TIÊU ĐỀ TRANG & SỐ LƯỢNG KẾT QUẢ -->
+    <header class="catalog-header">
+      <div class="catalog-title-row">
+        <h1 class="catalog-title" id="catalogTitle">Tất cả sản phẩm</h1>
+        <span class="catalog-count-badge" id="catalogCountBadge">(15 sản phẩm)</span>
+      </div>
+    </header>
+
+    <!-- 4. BỘ LỌC ĐA TIÊU CHÍ (MULTI-CRITERIA FILTERS) -->
+    <section class="filter-box" id="filterBox" aria-label="Bộ lọc sản phẩm">
+      <!-- Hàng 1: Lọc theo Danh mục -->
+      <div class="filter-group">
+        <div class="filter-label">
+          <span>📁</span>
+          <span>Danh mục:</span>
+        </div>
+        <div class="filter-options" id="filterCategories">
+          <!-- Render tự động -->
+        </div>
+      </div>
+
+      <!-- Hàng 2: Lọc theo Hãng / Thương hiệu -->
+      <div class="filter-group">
+        <div class="filter-label">
+          <span>🏷️</span>
+          <span>Hãng:</span>
+        </div>
+        <div class="filter-options" id="filterBrands">
+          <!-- Render tự động theo Category -->
+        </div>
+      </div>
+
+      <!-- Hàng 3: Lọc theo Mức giá -->
+      <div class="filter-group">
+        <div class="filter-label">
+          <span>💰</span>
+          <span>Mức giá:</span>
+        </div>
+        <div class="filter-options" id="filterPrices">
+          <!-- Render tự động -->
+        </div>
+      </div>
+
+      <!-- Hàng 4: Tiêu chí đặc biệt -->
+      <div class="filter-group">
+        <div class="filter-label">
+          <span>✨</span>
+          <span>Ưu đãi:</span>
+        </div>
+        <div class="filter-options">
+          <button type="button" class="filter-btn" id="filterSpecialFlashSale">
+            ⚡ Đang Flash Sale
+          </button>
+        </div>
+      </div>
+
+      <!-- Hàng 5: Dải Tag các tiêu chí đang được áp dụng -->
+      <div class="active-filters-bar" id="activeFiltersBar" style="display: none;">
+        <span style="font-weight: 700; color: #475569;">Đang lọc:</span>
+        <div id="activeTagsContainer" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+        <button type="button" class="btn-clear-all-filters js-clear-all-filters">Xóa tất cả bộ lọc</button>
+      </div>
+    </section>
+
+    <!-- 5. THANH SẮP XẾP SẢN PHẨM (SORT TOOLBAR) -->
+    <section class="sort-toolbar" aria-label="Sắp xếp sản phẩm">
+      <div class="sort-group">
+        <span class="sort-label">Sắp xếp theo:</span>
+        <button type="button" class="sort-btn active" data-sort="sold-desc">
+          🔥 Bán chạy nhất
+        </button>
+        <button type="button" class="sort-btn" data-sort="price-asc">
+          Giá Thấp - Cao &uarr;
+        </button>
+        <button type="button" class="sort-btn" data-sort="price-desc">
+          Giá Cao - Thấp &darr;
+        </button>
+        <button type="button" class="sort-btn" data-sort="rating-desc">
+          Đánh giá cao &starf;
+        </button>
+        <button type="button" class="sort-btn" data-sort="discount-desc">
+          % Giảm nhiều
+        </button>
+      </div>
+    </section>
+
+    <!-- 6. LƯỚI SẢN PHẨM CHÍNH (6 CỘT RESPONSIVE) -->
+    <div class="product-grid" id="catalogProductGrid">
+      <!-- Render thẻ sản phẩm qua productPage.js -->
+    </div>
+
+    <!-- 7. TRẠNG THÁI RỖNG (EMPTY STATE KHI BỘ LỌC KHÔNG CÓ KẾT QUẢ) -->
+    <section class="empty-catalog-state" id="catalogEmptyState" style="display: none;">
+      <div class="empty-catalog-icon">🔍</div>
+      <h3>Không tìm thấy sản phẩm phù hợp</h3>
+      <p>Rất tiếc, không có sản phẩm nào thỏa mãn các điều kiện tìm kiếm và bộ lọc hiện tại của bạn.</p>
+      <button type="button" class="btn-reset-filters">
+        <span>🔄</span>
+        <span>Xóa bộ lọc & Xem tất cả sản phẩm</span>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- 8. FOOTER DÙNG CHUNG -->
+  <div id="footer-container"></div>
+
+  <!-- SCRIPT ĐIỀU KHIỂN TRANG SẢN PHẨM -->
+  <script type="module" src="./js/page/productPage.js"></script>
+</body>
+</html>

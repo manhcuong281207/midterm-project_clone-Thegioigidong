@@ -1,0 +1,473 @@
+/**
+ * home.css - Định dạng giao diện riêng cho Trang Chủ (Index)
+ * Tuân thủ UI_DESIGN_GUIDELINES.md: Hero Carousel, Benefits, Flash Sale đếm ngược, Deal đỏ đặc trưng
+ */
+
+/* ==========================================================================
+   1. HERO BANNER CAROUSEL
+   ========================================================================== */
+.hero-slider-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background-color: #222222;
+}
+
+.hero-slider-track {
+  display: flex;
+  transition: transform 0.45s ease-in-out;
+  width: 100%;
+}
+
+.hero-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  position: relative;
+  aspect-ratio: 1200 / 330;
+  min-height: 200px;
+  max-height: 350px;
+  display: block;
+}
+
+.hero-slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fallback khi banner không có ảnh hoặc link ảnh lỗi */
+.hero-slide__fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 48px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.hero-slide__fallback h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-slide__fallback p {
+  font-size: 15px;
+  color: #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.hero-slide__fallback .btn-slide-cta {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 8px 18px;
+  background: var(--color-primary);
+  color: #000000;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform 0.2s;
+}
+
+.hero-slide__fallback .btn-slide-cta:hover {
+  transform: scale(1.05);
+}
+
+/* Mũi tên chuyển slide Prev / Next */
+.hero-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 54px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 20px;
+  z-index: 10;
+  transition: background 0.2s ease;
+  user-select: none;
+}
+
+.hero-slider-arrow:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.hero-slider-arrow--prev {
+  left: 10px;
+}
+
+.hero-slider-arrow--next {
+  right: 10px;
+}
+
+/* Chấm tròn chỉ số Slide (Dots) */
+.hero-slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.hero-slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero-slider-dot.active {
+  background: var(--color-primary);
+  width: 26px;
+}
+
+/* ==========================================================================
+   2. PAYMENT BENEFITS STRIP (DẢI TIỆN ÍCH THANH TOÁN)
+   ========================================================================== */
+.benefit-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 991px) {
+  .benefit-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .benefit-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px;
+  border-right: 1px solid var(--color-border);
+}
+
+.benefit-item:last-child {
+  border-right: none;
+}
+
+.benefit-icon {
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.benefit-text h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.benefit-text p {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   3. FLASH SALE SECTION ("KHUYẾN MÃI ONLINE")
+   ========================================================================== */
+.flash-sale-box {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--color-flash);
+}
+
+.flash-sale-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.flash-sale-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #c2410c;
+  text-transform: uppercase;
+}
+
+.flash-countdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.countdown-pill {
+  background: #111827;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 30px;
+  text-align: center;
+}
+
+/* Tabs danh mục ưu đãi */
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 16px;
+  padding-bottom: 4px;
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  border-color: #cbd5e1;
+  color: var(--color-text);
+}
+
+.tab-btn.active {
+  background: var(--color-primary);
+  color: #000000;
+  border-color: var(--color-primary);
+}
+
+/* Nút xem thêm */
+.section-footer-cta {
+  text-align: center;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-link);
+  transition: all 0.2s ease;
+}
+
+.btn-see-more:hover {
+  background: var(--color-cta-soft);
+  border-color: var(--color-link);
+}
+
+/* ==========================================================================
+   4. DEAL SECTION — "DEAL ĐẸP CÓ HẠN" (NỀN ĐỎ ĐẶC TRƯNG TGDD)
+   ========================================================================== */
+.deal-section {
+  background: var(--color-deal);
+  border-radius: var(--radius-md);
+  padding: 20px 16px;
+  margin-bottom: var(--space-6);
+  box-shadow: 0 4px 16px rgba(196, 0, 20, 0.25);
+}
+
+.deal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.deal-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deal-badge {
+  background: var(--color-primary);
+  color: #000000;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* Tabs trong deal section */
+.deal-tabs .tab-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.deal-tabs .tab-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.deal-tabs .tab-btn.active {
+  background: #ffffff;
+  color: var(--color-deal);
+  border-color: #ffffff;
+}
+
+.btn-deal-more {
+  display: inline-block;
+  padding: 10px 28px;
+  background: #ffffff;
+  color: var(--color-deal);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-deal-more:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   5. MINI PROMO BANNERS ĐÔI
+   ========================================================================== */
+.promo-mini-banners {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 767px) {
+  .promo-mini-banners {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mini-banner-card {
+  position: relative;
+  aspect-ratio: 590 / 180;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  color: #ffffff;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease;
+}
+
+.mini-banner-card:hover {
+  transform: translateY(-2px);
+}
+
+.mini-banner-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.mini-banner-card p {
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   6. TỪ KHÓA TÌM KIẾM PHỔ BIẾN (POPULAR SEARCHES)
+   ========================================================================== */
+.popular-searches {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+
+.popular-searches h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #334155;
+}
+
+.popular-tags-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.popular-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  color: #475569;
+  transition: all 0.15s ease;
+}
+
+.popular-tag:hover {
+  background: #000000;
+  color: var(--color-primary);
+  border-color: #000000;
+}

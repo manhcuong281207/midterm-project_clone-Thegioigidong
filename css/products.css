@@ -1,0 +1,245 @@
+/**
+ * products.css - Định dạng giao diện riêng cho Trang Danh Sách Sản Phẩm & Lọc Tìm Kiếm
+ * Tuân thủ UI_DESIGN_GUIDELINES.md: Breadcrumb, Bộ lọc đa tiêu chí, Thanh Sort, Empty state
+ */
+
+/* ==========================================================================
+   1. BREADCRUMB & TIÊU ĐỀ DANH MỤC
+   ========================================================================== */
+.catalog-header {
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.catalog-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.catalog-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+.catalog-count-badge {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   2. BỘ LỌC ĐA TIÊU CHÍ (MULTI-CRITERIA FILTER BAR)
+   ========================================================================== */
+.filter-box {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2937;
+  min-width: 90px;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--color-surface-soft);
+  color: #4b5563;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: #94a3b8;
+  color: #111;
+  background: #ffffff;
+}
+
+.filter-btn.active {
+  background: #000000;
+  color: var(--color-primary);
+  border-color: #000000;
+  font-weight: 700;
+}
+
+/* Dải Tag Bộ Lọc Đang Áp Dụng */
+.active-filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-border);
+  font-size: 12px;
+}
+
+.active-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #b45309;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.active-filter-tag button {
+  background: none;
+  border: none;
+  color: #b45309;
+  font-size: 13px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn-clear-all-filters {
+  font-size: 12px;
+  color: var(--color-link);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   3. THANH SẮP XẾP SẢN PHẨM (SORT TOOLBAR)
+   ========================================================================== */
+.sort-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  padding: 10px 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sort-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sort-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.sort-btn {
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sort-btn:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.sort-btn.active {
+  background: var(--color-primary);
+  color: #000000;
+  border-color: #eab308;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   4. TRẠNG THÁI RỖNG (EMPTY STATE - KHÔNG TÌM THẤY SẢN PHẨM)
+   ========================================================================== */
+.empty-catalog-state {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 48px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  margin: var(--space-5) 0;
+}
+
+.empty-catalog-icon {
+  font-size: 56px;
+  margin-bottom: 12px;
+  display: inline-block;
+  opacity: 0.8;
+}
+
+.empty-catalog-state h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.empty-catalog-state p {
+  font-size: 14px;
+  color: #64748b;
+  max-width: 440px;
+  margin: 0 auto 20px;
+}
+
+.btn-reset-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--color-primary);
+  color: #000000;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform 0.2s ease;
+}
+
+.btn-reset-filters:hover {
+  transform: translateY(-2px);
+  background: var(--color-primary-hover);
+}

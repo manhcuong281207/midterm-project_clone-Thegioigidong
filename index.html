@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thế Giới Công Nghệ - Hệ thống bán lẻ điện thoại, laptop, smartwatch, phụ kiện chính hãng giá sốc, trả góp 0%, giao hàng nhanh 2h.">
+  <title>Thế Giới Công Nghệ — Điện thoại, Laptop, Phụ kiện chính hãng</title>
+
+  <!-- CSS Design Tokens & Layout -->
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+
+  <!-- VỊ TRÍ HEADER GHIM (STICKY HEADER) -->
+  <div id="header-container"></div>
+
+  <!-- NỘI DUNG CHÍNH TRANG CHỦ -->
+  <main class="container">
+
+    <!-- 1. HERO BANNER CAROUSEL -->
+    <section class="hero-slider-wrap" id="heroSliderWrap" aria-label="Khuyến mãi nổi bật">
+      <div class="hero-slider-track">
+        <!-- Render tự động qua homePage.js -->
+      </div>
+
+      <button type="button" class="hero-slider-arrow hero-slider-arrow--prev" aria-label="Slide trước">&#10094;</button>
+      <button type="button" class="hero-slider-arrow hero-slider-arrow--next" aria-label="Slide tiếp theo">&#10095;</button>
+
+      <div class="hero-slider-dots">
+        <!-- Dots tự động -->
+      </div>
+    </section>
+
+    <!-- 2. DẢI TIỆN ÍCH THANH TOÁN (PAYMENT BENEFITS) -->
+    <section class="benefit-strip" id="benefitStripContainer" aria-label="Ưu đãi thanh toán">
+      <!-- Render tự động -->
+    </section>
+
+    <!-- 3. KHỐI FLASH SALE ("KHUYẾN MÃI ONLINE") -->
+    <section class="flash-sale-box" id="flashSaleSection">
+      <div class="flash-sale-header">
+        <div class="flash-sale-title">
+          <span>⚡</span>
+          <span>KHUYẾN MÃI ONLINE GIÁ SỐC</span>
+        </div>
+
+        <div class="flash-countdown">
+          <span>KẾT THÚC TRONG:</span>
+          <span class="countdown-pill" id="cdHours">00</span>
+          <span>:</span>
+          <span class="countdown-pill" id="cdMinutes">00</span>
+          <span>:</span>
+          <span class="countdown-pill" id="cdSeconds">00</span>
+        </div>
+      </div>
+
+      <!-- Tabs chọn danh mục ưu đãi -->
+      <div class="category-tabs" id="flashSaleTabs">
+        <!-- Render tự động -->
+      </div>
+
+      <!-- Lưới sản phẩm Flash Sale (6 cột) -->
+      <div class="product-grid" id="flashSaleGrid">
+        <!-- Render thẻ sản phẩm có thanh tiến độ -->
+      </div>
+
+      <div class="section-footer-cta">
+        <a href="product.html?sale=true" class="btn-see-more">
+          <span>Xem tất cả khuyến mãi</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. KHỐI DEAL ĐỎ ("DEAL ĐẸP CÓ HẠN" - SECTION CHIẾN DỊCH ĐẶC TRƯNG TGDD) -->
+    <section class="deal-section" id="dealSection">
+      <div class="deal-header">
+        <div class="deal-title">
+          <span>🔥</span>
+          <span>DEAL ĐẸP CÓ HẠN</span>
+          <span class="deal-badge">GIẢM ĐẾN 50%</span>
+        </div>
+
+        <div class="category-tabs deal-tabs" id="dealTabs">
+          <!-- Tabs của deal đỏ -->
+        </div>
+      </div>
+
+      <!-- Lưới sản phẩm thẻ trắng tương phản trên nền đỏ -->
+      <div class="product-grid" id="dealGrid">
+        <!-- Render tự động -->
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="product.html" class="btn-deal-more">
+          Xem thêm 150+ sản phẩm giá sốc &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. BANNER ĐÔI QUẢNG CÁO GAMING & PHỤ KIỆN -->
+    <section class="promo-mini-banners" id="miniBannersContainer">
+      <!-- Render tự động -->
+    </section>
+
+    <!-- 6. KHỐI ĐIỆN THOẠI NỔI BẬT NHẤT -->
+    <section class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span>📱</span>
+          <span>Điện Thoại Nổi Bật Nhất</span>
+        </h2>
+        <a href="product.html?category=phone" class="section-link">Xem tất cả điện thoại &rarr;</a>
+      </div>
+      <div class="product-grid" id="phoneFeaturedGrid">
+        <!-- Render 6 điện thoại -->
+      </div>
+    </section>
+
+    <!-- 7. KHỐI LAPTOP BÁN CHẠY -->
+    <section class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span>💻</span>
+          <span>Laptop Bán Chạy</span>
+        </h2>
+        <a href="product.html?category=laptop" class="section-link">Xem tất cả laptop &rarr;</a>
+      </div>
+      <div class="product-grid" id="laptopFeaturedGrid">
+        <!-- Render 6 laptop -->
+      </div>
+    </section>
+
+    <!-- 8. GỢI Ý HÔM NAY (DÀNH CHO BẠN) -->
+    <section class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span>🌟</span>
+          <span>Gợi Ý Dành Cho Bạn</span>
+        </h2>
+        <a href="product.html" class="section-link">Xem toàn bộ kho hàng &rarr;</a>
+      </div>
+      <div class="product-grid" id="recommendGrid">
+        <!-- Render danh sách sản phẩm gợi ý -->
+      </div>
+    </section>
+
+    <!-- 9. TỪ KHÓA TÌM KIẾM PHỔ BIẾN -->
+    <section class="popular-searches">
+      <h4>Mọi người cũng đang tìm kiếm</h4>
+      <div class="popular-tags-wrap">
+        <a href="product.html?search=iPhone" class="popular-tag">iPhone 16 Pro Max</a>
+        <a href="product.html?search=Samsung" class="popular-tag">Samsung Galaxy S24</a>
+        <a href="product.html?search=MacBook" class="popular-tag">MacBook Air M3</a>
+        <a href="product.html?search=Gaming" class="popular-tag">Laptop Gaming RTX 4060</a>
+        <a href="product.html?search=Watch" class="popular-tag">Apple Watch Series 10</a>
+        <a href="product.html?search=AirPods" class="popular-tag">Tai nghe AirPods Pro 2</a>
+        <a href="product.html?search=Sạc" class="popular-tag">Củ sạc nhanh 65W</a>
+        <a href="product.html?search=iPad" class="popular-tag">iPad Pro M4</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- VỊ TRÍ FOOTER DÙNG CHUNG -->
+  <div id="footer-container"></div>
+
+  <!-- SCRIPT ĐIỀU KHIỂN TRANG CHỦ -->
+  <script type="module" src="./js/page/homePage.js"></script>
+</body>
+</html>

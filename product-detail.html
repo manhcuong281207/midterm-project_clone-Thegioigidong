@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chi tiết sản phẩm công nghệ chính hãng, cấu hình chi tiết, ưu đãi giảm giá và chính sách bảo hành tại Thế Giới Công Nghệ.">
+  <title>Chi Tiết Sản Phẩm — Thế Giới Công Nghệ</title>
+
+  <!-- CSS Design Tokens & Stylesheet riêng -->
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/product-detail.css">
+</head>
+<body>
+
+  <!-- 1. STICKY HEADER DÙNG CHUNG -->
+  <div id="header-container"></div>
+
+  <!-- NỘI DUNG CHÍNH TRANG CHI TIẾT SẢN PHẨM -->
+  <main class="container">
+
+    <!-- 2. BREADCRUMB ĐIỀU HƯỚNG -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="breadcrumb-separator">&gt;</span>
+      <a href="product.html" id="detailBreadcrumbCategory">Danh mục</a>
+      <span class="breadcrumb-separator">&gt;</span>
+      <span id="detailBreadcrumbProduct">Chi tiết sản phẩm</span>
+    </nav>
+
+    <!-- TRƯỜNG HỢP NGOẠI LỆ: KHÔNG TÌM THẤY SẢN PHẨM THEO ID -->
+    <section class="detail-not-found" id="detailNotFoundSection" style="display: none;">
+      <div class="detail-not-found__icon">⚠️</div>
+      <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Không tìm thấy thông tin sản phẩm</h2>
+      <p id="notFoundMessage" style="color: #64748b; margin-bottom: 24px; font-size: 14px;">Mã sản phẩm không tồn tại hoặc đã bị xóa khỏi hệ thống.</p>
+      <a href="product.html" class="btn-buy-now" style="max-width: 280px; margin: 0 auto; text-decoration: none;">
+        <span>Xem tất cả sản phẩm &rarr;</span>
+      </a>
+    </section>
+
+    <!-- NỘI DUNG CHI TIẾT KHI TÌM THẤY SẢN PHẨM -->
+    <div id="detailContentSection">
+
+      <!-- TIÊU ĐỀ SẢN PHẨM & ĐÁNH GIÁ -->
+      <header class="detail-header">
+        <h1 class="detail-header__title" id="detailProductName">Đang tải tên sản phẩm...</h1>
+        <div class="detail-header__meta">
+          <div class="detail-rating">
+            <span class="detail-rating__stars" id="detailRatingStars">★★★★★</span>
+            <strong id="detailRatingScore">5.0</strong>
+            <span id="detailReviewsCount">(0 đánh giá)</span>
+          </div>
+          <span style="color: #cbd5e1;">|</span>
+          <span class="detail-status-badge" id="detailStockBadge">
+            <span>●</span> Đang kiểm tra tồn kho...
+          </span>
+        </div>
+      </header>
+
+      <!-- BỐ CỤC 2 CỘT CHÍNH -->
+      <div class="detail-main-grid">
+
+        <!-- CỘT TRÁI: GALLERY ẢNH 1:1 CHỐNG VỠ LAYOUT & CHÍNH SÁCH -->
+        <div class="detail-gallery-wrap">
+          <div class="detail-main-image-box">
+            <!-- Ảnh chính -->
+            <img id="detailMainImage" class="detail-main-image" src="" alt="Sản phẩm" />
+
+            <!-- Fallback Placeholder: Hiện khi link ảnh lỗi/chết -->
+            <div id="detailImagePlaceholder" class="detail-image-placeholder">
+              <span class="detail-image-placeholder__icon" id="detailPlaceholderIcon">📱</span>
+              <span class="detail-image-placeholder__name" id="detailPlaceholderName">Sản phẩm công nghệ</span>
+              <span style="font-size: 11px; color: #64748b;">(Ảnh mô phỏng đang được cập nhật)</span>
+            </div>
+          </div>
+
+          <!-- Thumbnails các góc chụp -->
+          <div class="detail-thumbnails" id="detailThumbnails">
+            <!-- Render tự động -->
+          </div>
+
+          <!-- Hộp cam kết mua hàng chuẩn TGDD -->
+          <div class="detail-policies-box">
+            <h3 class="detail-policies-title">Yên tâm mua sắm tại hệ thống</h3>
+            <div class="detail-policy-list">
+              <div class="detail-policy-item">
+                <span class="detail-policy-icon">✓</span>
+                <span>Hư gì đổi nấy <strong>12 tháng</strong> tại hơn 3000 siêu thị trên toàn quốc.</span>
+              </div>
+              <div class="detail-policy-item">
+                <span class="detail-policy-icon">🛡️</span>
+                <span>Bảo hành chính hãng <strong>1 năm</strong> tại các trung tâm bảo hành ủy quyền.</span>
+              </div>
+              <div class="detail-policy-item">
+                <span class="detail-policy-icon">📦</span>
+                <span>Giao hàng tận nơi siêu tốc trong <strong>2 giờ</strong>, kiểm tra hàng trước khi thanh toán.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CỘT PHẢI: GIÁ BÁN, CHỌN OPTION & NÚT MUA HÀNG -->
+        <div class="detail-purchase-wrap">
+
+          <!-- Hộp Giá Bán -->
+          <div class="detail-price-box">
+            <span class="detail-price-current" id="detailCurrentPrice">0₫</span>
+            <span class="detail-price-original" id="detailOriginalPrice">0₫</span>
+            <span class="detail-discount-badge" id="detailDiscountBadge">-0%</span>
+            <div id="detailInstallmentEst" style="width: 100%; font-size: 12px; color: #64748b; margin-top: 4px;"></div>
+          </div>
+
+          <!-- Chọn Phiên Bản Dung Lượng -->
+          <div class="detail-option-group">
+            <span class="detail-option-label">Chọn phiên bản dung lượng:</span>
+            <div class="detail-option-list" id="detailVersionList">
+              <!-- Render tự động -->
+            </div>
+          </div>
+
+          <!-- Chọn Màu Sắc -->
+          <div class="detail-option-group">
+            <span class="detail-option-label">Chọn màu sắc:</span>
+            <div class="detail-option-list" id="detailColorList">
+              <!-- Render tự động -->
+            </div>
+          </div>
+
+          <!-- Hộp Khuyến Mãi Ưu Đãi -->
+          <div class="detail-promo-box">
+            <div class="detail-promo-header">
+              <span>🎁</span>
+              <span>KHUYẾN MÃI ĐẶC QUYỀN ĐI KÈM</span>
+            </div>
+            <div class="detail-promo-content">
+              <div class="detail-promo-item">
+                <span>1.</span>
+                <span>Tặng phiếu mua hàng trị giá <strong>500.000₫</strong> áp dụng mua phụ kiện chính hãng.</span>
+              </div>
+              <div class="detail-promo-item">
+                <span>2.</span>
+                <span>Giảm thêm <strong>1.000.000₫</strong> khi thanh toán qua thẻ tín dụng liên kết (VIB, VPBank).</span>
+              </div>
+              <div class="detail-promo-item">
+                <span>3.</span>
+                <span>Thu cũ đổi mới - Trợ giá lên tới <strong>3.000.000₫</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chọn Số Lượng -->
+          <div class="detail-quantity-box">
+            <span style="font-size: 13px; font-weight: 700;">Số lượng:</span>
+            <div class="quantity-controller">
+              <button type="button" class="btn-qty" id="btnQtyMinus" aria-label="Giảm số lượng">-</button>
+              <input type="number" class="qty-input" id="detailQtyInput" value="1" min="1" max="99" />
+              <button type="button" class="btn-qty" id="btnQtyPlus" aria-label="Tăng số lượng">+</button>
+            </div>
+          </div>
+
+          <!-- Nhóm Nút Mua Hàng Kép (CTA) -->
+          <div class="detail-cta-group">
+            <button type="button" class="btn-buy-now" id="btnBuyNow">
+              <span>MUA NGAY</span>
+              <span class="sub">Giao tận nơi hoặc nhận tại siêu thị</span>
+            </button>
+
+            <div class="detail-cta-secondary-row">
+              <button type="button" class="btn-add-cart-detail" id="btnAddToCart">
+                <span>🛒</span>
+                <span>Thêm vào giỏ hàng</span>
+              </button>
+              <button type="button" class="btn-installment" id="btnInstallment">
+                <span>TRẢ GÓP 0%</span>
+                <span style="font-size: 10px; font-weight: normal;">Duyệt hồ sơ nhanh qua thẻ</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BẢNG THÔNG SỐ KỸ THUẬT & ĐẶC ĐIỂM NỔI BẬT -->
+      <section class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span>⚙️</span>
+            <span>Thông Số Kỹ Thuật & Đặc Điểm Nổi Bật</span>
+          </h2>
+        </div>
+        <div class="detail-specs-grid">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #111;">Mô tả sản phẩm</h3>
+            <p id="detailProductDescription" style="font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 16px;"></p>
+            <div style="background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 13px;">
+              <strong>Cam kết chất lượng:</strong> Sản phẩm mới nguyên hộp 100% chính hãng, đầy đủ phụ kiện theo tiêu chuẩn nhà sản xuất.
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #111;">Bảng thông số chi tiết</h3>
+            <table class="specs-table" id="detailSpecsTable">
+              <!-- Render tự động -->
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SẢN PHẨM TƯƠNG TỰ CÙNG CHUYÊN MỤC -->
+      <section class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span>🔄</span>
+            <span>Sản Phẩm Tương Tự Cùng Danh Mục</span>
+          </h2>
+        </div>
+        <div class="product-grid" id="detailRelatedGrid">
+          <!-- Render tự động -->
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- 3. FOOTER DÙNG CHUNG -->
+  <div id="footer-container"></div>
+
+  <!-- SCRIPT ĐIỀU KHIỂN TRANG CHI TIẾT -->
+  <script type="module" src="./js/page/productDetailPage.js"></script>
+</body>
+</html>

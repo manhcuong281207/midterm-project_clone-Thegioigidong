@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Giỏ hàng của bạn tại Thế Giới Công Nghệ. Kiểm tra và thanh toán đơn hàng nhanh chóng, bảo mật và tiện lợi.">
+  <title>Giỏ Hàng & Đặt Hàng — Thế Giới Công Nghệ</title>
+
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/cart.css">
+</head>
+<body>
+
+  <!-- 1. STICKY HEADER DÙNG CHUNG -->
+  <div id="header-container"></div>
+
+  <!-- NỘI DUNG TRANG GIỎ HÀNG -->
+  <main class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="breadcrumb-separator">&gt;</span>
+      <span>Giỏ hàng của bạn</span>
+    </nav>
+
+    <!-- TRẠNG THÁI GIỎ HÀNG TRỐNG -->
+    <section class="cart-empty-state" id="cartEmptySection" style="display: none;" aria-live="polite">
+      <div class="cart-empty-icon">🛒</div>
+      <h2>Giỏ hàng của bạn đang trống!</h2>
+      <p>Bạn chưa có sản phẩm nào trong giỏ hàng. Hãy khám phá hàng ngàn sản phẩm công nghệ chính hãng, giá tốt nhất!</p>
+      <a href="product.html" class="btn-continue-shopping">
+        <span>🏪</span>
+        <span>Tiếp Tục Mua Sắm</span>
+      </a>
+    </section>
+
+    <!-- BỐ CỤC 2 CỘT: GIỎ HÀNG & TỔNG KẾT -->
+    <div class="cart-layout" id="cartSection" style="display: none;">
+
+      <!-- CỘT TRÁI: DANH SÁCH SẢN PHẨM TRONG GIỎ -->
+      <div>
+        <section class="cart-items-box">
+          <div class="cart-items-header">
+            <h2>
+              <span>🛒</span>
+              <span>Giỏ Hàng Của Bạn</span>
+              <span class="cart-count-tag" id="cartCountTag">0</span>
+            </h2>
+            <button type="button" id="btnClearCart" class="btn-clear-cart">Xóa toàn bộ</button>
+          </div>
+
+          <!-- Danh sách sản phẩm render qua cartPage.js -->
+          <div id="cartItemsList">
+            <!-- Render tự động -->
+          </div>
+        </section>
+
+        <!-- Tiếp tục mua sắm -->
+        <div style="margin-top: 14px; text-align: left;">
+          <a href="product.html" style="font-size: 13px; color: var(--color-link); font-weight: 600;">
+            &larr; Tiếp tục mua sắm
+          </a>
+        </div>
+      </div>
+
+      <!-- CỘT PHẢI: PANEL TỔNG KẾT -->
+      <aside>
+        <section class="cart-summary-panel">
+          <div class="cart-summary-header">
+            <span>📋</span>
+            <span>Tóm Tắt Đơn Hàng</span>
+          </div>
+          <div class="cart-summary-lines">
+            <div class="cart-summary-row">
+              <span>Tạm tính</span>
+              <span id="summarySubtotal">0₫</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Phí vận chuyển</span>
+              <span id="summaryShipping">30.000₫</span>
+            </div>
+            <div class="cart-summary-divider"></div>
+            <div class="cart-summary-row total">
+              <span>Tổng thanh toán</span>
+              <strong id="summaryTotal">0₫</strong>
+            </div>
+          </div>
+
+          <button type="button" class="btn-proceed-checkout" id="btnProceedToCheckout">
+            Tiến Hành Đặt Hàng ↓
+          </button>
+
+          <div class="cart-security-note">
+            🔒 Giao dịch được mã hóa SSL an toàn tuyệt đối
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <!-- FORM THÔNG TIN ĐẶT HÀNG & VALIDATE DỮ LIỆU -->
+    <section class="checkout-form-box" id="checkoutSection" style="display: none;">
+      <div class="checkout-form-header">
+        <span>📦</span>
+        <span>Thông Tin Nhận Hàng & Thanh Toán</span>
+      </div>
+
+      <form class="checkout-form-body" id="checkoutForm" novalidate>
+
+        <!-- Họ và Tên -->
+        <div class="form-field">
+          <label for="fullName">
+            Họ và tên người nhận <span class="form-required">*</span>
+          </label>
+          <input type="text" id="fullName" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" maxlength="80" />
+          <span class="form-error-msg" id="fullNameError" role="alert"></span>
+        </div>
+
+        <!-- Số điện thoại -->
+        <div class="form-field">
+          <label for="phone">
+            Số điện thoại nhận hàng <span class="form-required">*</span>
+          </label>
+          <input type="tel" id="phone" class="form-input" placeholder="Ví dụ: 0912 345 678" maxlength="12" />
+          <span class="form-error-msg" id="phoneError" role="alert"></span>
+        </div>
+
+        <!-- Địa chỉ giao hàng -->
+        <div class="form-field">
+          <label for="address">
+            Địa chỉ giao hàng <span class="form-required">*</span>
+          </label>
+          <input type="text" id="address" class="form-input" placeholder="Số nhà, đường, phường/xã, quận/huyện, thành phố" />
+          <span class="form-error-msg" id="addressError" role="alert"></span>
+        </div>
+
+        <!-- Ghi chú đơn hàng -->
+        <div class="form-field">
+          <label for="orderNote">Ghi chú thêm <span style="font-weight: 400; color: #94a3b8;">(Không bắt buộc)</span></label>
+          <textarea id="orderNote" class="form-textarea" rows="3" placeholder="Ví dụ: Gọi trước khi giao, giao ngoài giờ hành chính..."></textarea>
+        </div>
+
+        <!-- Phương thức thanh toán -->
+        <div class="form-field">
+          <label>Phương thức thanh toán <span class="form-required">*</span></label>
+          <div class="payment-method-group" id="paymentMethodGroup">
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="cod" checked />
+              <div class="payment-option-body">
+                <span class="payment-option-title">💵 Thanh toán khi nhận hàng (COD)</span>
+                <span class="payment-option-sub">Kiểm tra hàng trước, thanh toán tiền mặt sau</span>
+              </div>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="bank-transfer" />
+              <div class="payment-option-body">
+                <span class="payment-option-title">🏦 Chuyển khoản ngân hàng / QR Code</span>
+                <span class="payment-option-sub">Quét mã QR, xác nhận đơn sau khi hệ thống nhận được tiền</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Nút đặt hàng -->
+        <button type="submit" class="btn-place-order" id="btnPlaceOrder">
+          🛒 XÁC NHẬN ĐẶT HÀNG
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- 2. FOOTER DÙNG CHUNG -->
+  <div id="footer-container"></div>
+
+  <!-- 3. MODAL ĐẶT HÀNG THÀNH CÔNG -->
+  <div class="order-success-overlay" id="orderSuccessOverlay" role="dialog" aria-modal="true" aria-labelledby="orderSuccessTitle">
+    <div class="order-success-modal">
+      <div class="order-success-check">✓</div>
+      <h2 id="orderSuccessTitle">Đặt Hàng Thành Công!</h2>
+      <p>
+        Xin chào <strong id="orderBuyerName">bạn</strong>! Đơn hàng của bạn đã được xác nhận và đang được xử lý.
+        Chúng tôi sẽ liên hệ xác nhận và giao hàng trong thời gian sớm nhất.
+      </p>
+      <div class="order-success-code">
+        Mã đơn hàng: <span id="orderCode">ORD-XXXXXX</span>
+      </div>
+      <div class="order-success-actions">
+        <button type="button" class="btn-modal-home" id="btnOrderGoHome">
+          🏠 Về Trang Chủ
+        </button>
+        <button type="button" class="btn-modal-continue" id="btnOrderContinue">
+          🛍️ Tiếp Tục Mua Sắm
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT ĐIỀU KHIỂN TRANG GIỎ HÀNG -->
+  <script type="module" src="./js/page/cartPage.js"></script>
+</body>
+</html>
