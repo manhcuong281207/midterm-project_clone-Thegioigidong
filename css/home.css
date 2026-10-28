@@ -391,6 +391,108 @@
 }
 
 /* ==========================================================================
+   PRODUCT CAROUSELS — card đồng cỡ, tối đa 5 card trong khung desktop
+   ========================================================================== */
+.product-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.product-carousel__track.product-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 1px 8px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.product-carousel__track.product-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.product-carousel__track > .product-card {
+  flex: 0 0 224px;
+  width: 224px;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.product-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: none;
+  width: 38px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
+  font-size: 18px;
+  transition: color var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
+}
+
+.product-carousel.is-overflowing .product-carousel-arrow {
+  display: flex;
+}
+
+.product-carousel-arrow:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.product-carousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.product-carousel-arrow--prev {
+  left: 5px;
+}
+
+.product-carousel-arrow--next {
+  right: 5px;
+}
+
+@media (max-width: 899px) {
+  .product-carousel__track > .product-card {
+    flex-basis: 190px;
+    width: 190px;
+  }
+}
+
+@media (max-width: 599px) {
+  .product-carousel__track.product-grid {
+    gap: 10px;
+  }
+
+  .product-carousel__track > .product-card {
+    flex-basis: 164px;
+    width: 164px;
+  }
+
+  .product-carousel-arrow {
+    width: 32px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-carousel__track > .product-card {
+    flex-basis: 148px;
+    width: 148px;
+  }
+}
+
+/* ==========================================================================
    4. DEAL SECTION — "DEAL ĐẸP CÓ HẠN" (nền sáng, viền/ánh gradient đỏ-hồng)
    ========================================================================== */
 .deal-section {
