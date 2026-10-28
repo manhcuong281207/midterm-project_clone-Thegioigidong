@@ -255,7 +255,7 @@ function renderMiniBanners() {
   if (!container) return;
 
   container.innerHTML = PROMO_MINI_BANNERS.map(b => `
-    <a href="${b.link}" class="mini-banner-card" style="background: ${b.fallbackBg};">
+    <a href="${b.link}" class="mini-banner-card" style="background-image: url('${b.image}');">
       <div>
         <h3>${b.title}</h3>
         <p>Khám phá ưu đãi hấp dẫn ngay hôm nay &rarr;</p>
