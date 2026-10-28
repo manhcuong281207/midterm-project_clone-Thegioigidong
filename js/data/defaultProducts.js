@@ -23,16 +23,92 @@ export const BRANDS = {
 export const DEFAULT_PRODUCTS = [
   // --- ĐIỆN THOẠI ---
   {
+    id: 'iphone-18-pro-max-256gb',
+    name: 'iPhone 18 Pro Max 256GB',
+    categoryId: 'phone',
+    brand: 'Apple',
+    price: 41990000,
+    originalPrice: 44990000,
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-18-pro-max-01.jpg',
+    images: [
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-18-pro-max-01.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-18-pro-max-06.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_01.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_02.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_03.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_04.jpg'
+    ],
+    rating: 4.9,
+    reviewCount: 128,
+    soldCount: 620,
+    specs: ['6.9 inch OLED', 'ProMotion 120Hz', 'Apple A20 Pro', '256GB', 'Camera 48MP x3'],
+    labels: ['Hàng mới', 'GIÁ SỐC', 'Trả góp 0%'],
+    isFlashSale: true,
+    flashSaleProgress: 86,
+    isFeatured: true,
+    stock: 18,
+    description: 'Màn hình OLED Super Retina XDR 6,9 inch ProMotion 120Hz độ sáng 3.000 nit, chip A20 Pro 2nm, bộ 3 camera 48MP zoom quang 4x, pin xem video 43 giờ, khung nhôm nguyên khối kháng nước IP68.'
+  },
+  {
+    id: 'samsung-galaxy-z8-series-256gb',
+    name: 'Samsung Galaxy Z Fold 8 Ultra 5G 12GB/256GB',
+    categoryId: 'phone',
+    brand: 'Samsung',
+    price: 47990000,
+    originalPrice: 52990000,
+    image: 'https://media-asset.cellphones.com.vn/dashboard-v2/uploads/content-uploads/samsung-galaxy-z-fold8-ultra-5g-12gb-256gb-240773.jpg',
+    images: [
+      'https://media-asset.cellphones.com.vn/dashboard-v2/uploads/content-uploads/samsung-galaxy-z-fold8-ultra-5g-12gb-256gb-240773.jpg',
+      'https://media-asset.cellphones.com.vn/dashboard-v2/uploads/content-uploads/samsung-galaxy-z-fold8-ultra-5g-12gb-256gb-800084.jpg'
+    ],
+    rating: 4.8,
+    reviewCount: 76,
+    soldCount: 340,
+    specs: ['8.0 inch AMOLED 2X', 'Snapdragon 8 Elite Gen 5', '256GB', '12GB RAM', 'Camera 200MP'],
+    labels: ['Galaxy AI', 'Hàng mới', 'Trả góp 0%'],
+    isFlashSale: true,
+    flashSaleProgress: 72,
+    isFeatured: true,
+    stock: 12,
+    description: 'Điện thoại gập cao cấp nhất dòng Z8, màn chính 8.0 inch 120Hz 3.000 nit, màn phụ 6.5 inch, chip Snapdragon 8 Elite Gen 5 3nm, camera chính 200MP quay 8K, pin 5.000mAh sạc 45W, thân máy chỉ 4.1mm khi mở.'
+  },
+  {
+    id: 'iphone-duo-256gb',
+    name: 'iPhone Duo 256GB',
+    categoryId: 'phone',
+    brand: 'Apple',
+    price: 64990000,
+    originalPrice: 69990000,
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-01.jpg',
+    images: [
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-01.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-02.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-03.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-04.jpg'
+    ],
+    rating: 4.9,
+    reviewCount: 45,
+    soldCount: 180,
+    specs: ['Trong 7.6 inch', 'Ngoài 5.4 inch', 'Chip A20 Pro', '256GB', 'Camera 48MP'],
+    labels: ['Độc quyền', 'GIÁ SỐC', 'Trả góp 0%'],
+    isFlashSale: true,
+    flashSaleProgress: 64,
+    isFeatured: true,
+    stock: 8,
+    description: 'iPhone màn hình gập đầu tiên với màn trong 7.6 inch và màn ngoài 5.4 inch Super Retina XDR 120Hz, chip A20 Pro, camera 48MP Fusion, hai viên pin lithium-ion, 2 eSIM, bề mặt Nano-texture chống chói.'
+  },
+  {
     id: 'iphone-16-pro-max-256gb',
     name: 'iPhone 16 Pro Max 256GB',
     categoryId: 'phone',
     brand: 'Apple',
     price: 34490000,
     originalPrice: 34990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-16-pro-max-sa-mac-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-16-pro-max-sa-mac-thumb-600x600.jpg',
-      'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-16-pro-max-den-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/2.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/3.webp'
     ],
     rating: 4.9,
     reviewCount: 342,
@@ -52,9 +128,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 27990000,
     originalPrice: 33990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/42/307174/samsung-galaxy-s24-ultra-grey-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/42/307174/samsung-galaxy-s24-ultra-grey-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/1.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/2.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/3.webp'
     ],
     rating: 4.8,
     reviewCount: 215,
@@ -74,9 +152,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Xiaomi',
     price: 28490000,
     originalPrice: 32990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/42/322096/xiaomi-14-ultra-trang-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/42/322096/xiaomi-14-ultra-trang-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/1.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/2.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/realme-xt/3.webp'
     ],
     rating: 4.7,
     reviewCount: 98,
@@ -96,9 +176,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'OPPO',
     price: 29990000,
     originalPrice: 31990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/42/330089/oppo-find-x8-pro-trang-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/42/330089/oppo-find-x8-pro-trang-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/1.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/2.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/3.webp'
     ],
     rating: 4.8,
     reviewCount: 64,
@@ -118,9 +200,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 9490000,
     originalPrice: 9990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/42/317530/samsung-galaxy-a55-5g-xanh-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/42/317530/samsung-galaxy-a55-5g-xanh-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/1.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/2.webp',
+      'https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/3.webp'
     ],
     rating: 4.6,
     reviewCount: 412,
@@ -142,9 +226,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 27990000,
     originalPrice: 29990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/44/322610/macbook-air-13-inch-m3-xam-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/44/322610/macbook-air-13-inch-m3-xam-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp'
     ],
     rating: 4.9,
     reviewCount: 180,
@@ -164,9 +250,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Asus',
     price: 16990000,
     originalPrice: 19490000,
-    image: 'https://cdn.tgdd.vn/Products/Images/44/314697/asus-vivobook-15-oled-a1505va-i5-l1354w-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/44/314697/asus-vivobook-15-oled-a1505va-i5-l1354w-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp'
     ],
     rating: 4.7,
     reviewCount: 95,
@@ -186,9 +274,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Lenovo',
     price: 36990000,
     originalPrice: 40990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/44/326848/lenovo-legion-5-16irx9-i7-83dg004yvn-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/44/326848/lenovo-legion-5-16irx9-i7-83dg004yvn-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp'
     ],
     rating: 4.9,
     reviewCount: 140,
@@ -208,9 +298,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'HP',
     price: 15490000,
     originalPrice: 17490000,
-    image: 'https://cdn.tgdd.vn/Products/Images/44/311186/hp-pavilion-15-eg3093tu-i5-8c567pa-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/44/311186/hp-pavilion-15-eg3093tu-i5-8c567pa-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp',
+      'https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp'
     ],
     rating: 4.6,
     reviewCount: 78,
@@ -232,9 +324,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 27990000,
     originalPrice: 28990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/522/325565/ipad-pro-11-inch-m4-wifi-den-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/522/325565/ipad-pro-11-inch-m4-wifi-den-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/1.webp',
+      'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/2.webp',
+      'https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/3.webp'
     ],
     rating: 4.9,
     reviewCount: 88,
@@ -254,9 +348,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 8490000,
     originalPrice: 9990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/522/313887/samsung-galaxy-tab-s9-fe-xam-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/522/313887/samsung-galaxy-tab-s9-fe-xam-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/1.webp',
+      'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/2.webp',
+      'https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/3.webp'
     ],
     rating: 4.7,
     reviewCount: 165,
@@ -278,9 +374,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 11290000,
     originalPrice: 11990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/7077/329431/apple-watch-s10-46mm-den-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/7077/329431/apple-watch-s10-46mm-den-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/1.webp',
+      'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/2.webp',
+      'https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/3.webp'
     ],
     rating: 4.8,
     reviewCount: 130,
@@ -300,9 +398,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Samsung',
     price: 8990000,
     originalPrice: 9490000,
-    image: 'https://cdn.tgdd.vn/Products/Images/7077/326880/samsung-galaxy-watch-7-lte-44mm-xanh-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/7077/326880/samsung-galaxy-watch-7-lte-44mm-xanh-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/1.webp',
+      'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/2.webp',
+      'https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/3.webp'
     ],
     rating: 4.7,
     reviewCount: 82,
@@ -322,9 +422,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Garmin',
     price: 7490000,
     originalPrice: 7990000,
-    image: 'https://cdn.tgdd.vn/Products/Images/7077/322960/garmin-forerunner-165-music-den-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/7077/322960/garmin-forerunner-165-music-den-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/1.webp',
+      'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/2.webp',
+      'https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/3.webp'
     ],
     rating: 4.9,
     reviewCount: 94,
@@ -346,9 +448,11 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Apple',
     price: 5490000,
     originalPrice: 6190000,
-    image: 'https://cdn.tgdd.vn/Products/Images/54/315016/airpods-pro-2-usb-c-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/54/315016/airpods-pro-2-usb-c-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/1.webp',
+      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/2.webp',
+      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/3.webp'
     ],
     rating: 4.9,
     reviewCount: 520,
@@ -368,9 +472,10 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Anker',
     price: 890000,
     originalPrice: 1200000,
-    image: 'https://cdn.tgdd.vn/Products/Images/58/328227/pin-sac-du-phong-20000mah-type-c-pd-30w-anker-a1384-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/58/328227/pin-sac-du-phong-20000mah-type-c-pd-30w-anker-a1384-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/1.webp',
+      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/2.webp'
     ],
     rating: 4.8,
     reviewCount: 230,
@@ -390,9 +495,10 @@ export const DEFAULT_PRODUCTS = [
     brand: 'Baseus',
     price: 490000,
     originalPrice: 650000,
-    image: 'https://cdn.tgdd.vn/Products/Images/9499/315486/adapter-sac-3-cong-type-c-pd-qc-65w-baseus-gan5-pro-ccgp120201-thumb-600x600.jpg',
+    image: 'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp',
     images: [
-      'https://cdn.tgdd.vn/Products/Images/9499/315486/adapter-sac-3-cong-type-c-pd-qc-65w-baseus-gan5-pro-ccgp120201-thumb-600x600.jpg'
+      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/1.webp',
+      'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/2.webp'
     ],
     rating: 4.7,
     reviewCount: 145,

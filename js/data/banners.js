@@ -5,42 +5,42 @@
 export const HERO_BANNERS = [
   {
     id: 'hero-banner-1',
-    title: 'iPhone 16 Pro Max - Titan sa mạc đẳng cấp',
-    subtitle: 'Ưu đãi đến 3 triệu - Trả góp 0%',
-    image: 'https://cdn.tgdd.vn/2024/09/banner/IP16-1200-300-1200x300.jpg',
+    title: '',
+    subtitle: '',
+    image: 'https://cdn2.cellphones.com.vn/insecure/rs:fill:1036:450/q:100/plain/https://media-asset.cellphones.com.vn/dashboard-v1/manage-banner/home-ip18-1026.png',
     fallbackBg: 'linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%)',
-    link: 'product-detail.html?id=iphone-16-pro-max-256gb'
+    link: 'product-detail.html?id=iphone-18-pro-max-256gb'
   },
   {
     id: 'hero-banner-2',
-    title: 'Samsung Galaxy S24 Ultra - Quyền năng Galaxy AI',
-    subtitle: 'Thu cũ đổi mới trợ giá 5 triệu',
-    image: 'https://cdn.tgdd.vn/2024/09/banner/S24-Ultra-1200-300-1200x300.jpg',
+    title: '',
+    subtitle: '',
+    image: 'https://cdn2.cellphones.com.vn/insecure/rs:fill:1036:450/q:100/plain/https://media-asset.cellphones.com.vn/dashboard-v1/manage-banner/Z8_home_1.png',
     fallbackBg: 'linear-gradient(135deg, #0d274d 0%, #174b88 100%)',
-    link: 'product-detail.html?id=samsung-galaxy-s24-ultra-256gb'
+    link: 'product-detail.html?id=samsung-galaxy-z8-series-256gb'
   },
   {
     id: 'hero-banner-3',
-    title: 'MacBook Air M3 - Đỉnh cao mỏng nhẹ',
-    subtitle: 'Giảm ngay 2 triệu - Tặng balo cao cấp',
-    image: 'https://cdn.tgdd.vn/2024/09/banner/Macbook-M3-1200-300-1200x300.jpg',
-    fallbackBg: 'linear-gradient(135deg, #2b3a4a 0%, #4b6584 100%)',
-    link: 'product-detail.html?id=macbook-air-m3-13-16gb'
+    title: '',
+    subtitle: '',
+    image: 'https://cdnv2.tgdd.vn/webmwg/dmx/Product/Image/desk-logoFirstScreen-model2-update7.png',
+    fallbackBg: 'linear-gradient(135deg, #2b3a4a 0%, #ffffff 100%)',
+    link: 'product-detail.html?id=iphone-duo-256gb'
   }
 ];
 
 export const PROMO_MINI_BANNERS = [
   {
     id: 'mini-1',
-    title: 'Lễ hội Gaming - Giảm đến 5 triệu',
-    image: 'https://cdn.tgdd.vn/2024/09/banner/laptop-gaming-390-210-390x210.jpg',
+    title: '',
+    image: 'https://nguyencongpc.vn/media/banner/13_Octe701b213a8c6c1f7aa115256b257e3ff.jpg',
     fallbackBg: '#e74c3c',
     link: 'product.html?category=laptop'
   },
   {
     id: 'mini-2',
-    title: 'Phụ kiện chính hãng - Mua 1 tặng 1',
-    image: 'https://cdn.tgdd.vn/2024/09/banner/phu-kien-390-210-390x210.jpg',
+    title: '',
+    image: 'https://nguyencongpc.vn/media/banner/19_Octc1fc865c30da3b1b82dac47170e14b35.jpg',
     fallbackBg: '#f39c12',
     link: 'product.html?category=accessory'
   }

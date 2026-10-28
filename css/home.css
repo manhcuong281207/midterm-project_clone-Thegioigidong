@@ -1,6 +1,6 @@
 /**
  * home.css - Định dạng giao diện riêng cho Trang Chủ (Index)
- * Tuân thủ UI_DESIGN_GUIDELINES.md: Hero Carousel, Benefits, Flash Sale đếm ngược, Deal đỏ đặc trưng
+ * Phong cách: Light Premium Tech-Store. Chỉ viết lại CSS, không sửa JS/HTML.
  */
 
 /* ==========================================================================
@@ -11,15 +11,16 @@
   width: 100%;
   margin-top: var(--space-4);
   margin-bottom: var(--space-4);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-card);
-  background-color: #222222;
 }
 
 .hero-slider-track {
   display: flex;
-  transition: transform 0.45s ease-in-out;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   width: 100%;
 }
 
@@ -27,20 +28,51 @@
   flex: 0 0 100%;
   width: 100%;
   position: relative;
-  aspect-ratio: 1200 / 330;
-  min-height: 200px;
-  max-height: 350px;
+  /* Chiều cao tự co theo tỷ lệ ảnh thực (do JS gán --hero-ratio).
+     Fallback 2.3:1 khớp bộ ảnh 1036x450 mặc định. */
+  aspect-ratio: var(--hero-ratio, 1036 / 450);
+  min-height: 180px;
   display: block;
+  background-color: var(--color-surface-soft);
 }
 
 .hero-slide__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* contain = ảnh luôn hiển thị TRỌN VẸN đúng tỷ lệ, không bị cắt chữ,
+     dù tỷ lệ ảnh khác nhau giữa các slide. */
+  object-fit: contain;
+  object-position: center;
   display: block;
+  position: relative;
+  z-index: 2;
 }
 
-/* Fallback khi banner không có ảnh hoặc link ảnh lỗi */
+/* Mobile: giữ nguyên tỷ lệ ảnh thực, chỉ đặt sàn chiều cao để không quá dẹt */
+@media (max-width: 599px) {
+  .hero-slide {
+    aspect-ratio: var(--hero-ratio, 16 / 9);
+    min-height: 150px;
+  }
+}
+
+/* Overlay gradient đáy cho hero — chỉ tô nửa dưới để không che ảnh banner.
+   pointer-events:none nên không chặn click vào link. */
+.hero-slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 0.55) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Fallback khi banner không có ảnh hoặc link ảnh lỗi.
+   z-index:1 → nằm DƯỚI ảnh (z-index:2); JS ẩn ảnh khi onerror nên fallback lộ ra.
+   Trước đây z-index:2 khiến fallback luôn đè lên ảnh ⇒ banner không bao giờ thấy. */
 .hero-slide__fallback {
   position: absolute;
   top: 0;
@@ -50,23 +82,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 24px 48px;
+  align-items: flex-start;
+  padding: 32px 48px;
   color: #ffffff;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, var(--color-surface-soft), var(--color-surface-raised));
+  z-index: 1;
 }
 
 .hero-slide__fallback h2 {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-text);
   margin-bottom: 8px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 .hero-slide__fallback p {
-  font-size: 15px;
-  color: #e2e8f0;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
   margin-bottom: 16px;
+  max-width: 60%;
 }
 
 .hero-slide__fallback .btn-slide-cta {
@@ -74,52 +111,59 @@
   align-self: flex-start;
   padding: 8px 18px;
   background: var(--color-primary);
-  color: #000000;
+  color: var(--color-on-primary);
   border-radius: var(--radius-pill);
   font-weight: 700;
-  font-size: 13px;
-  transition: transform 0.2s;
+  font-size: var(--font-xs);
+  text-transform: uppercase;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .hero-slide__fallback .btn-slide-cta:hover {
   transform: scale(1.05);
+  box-shadow: var(--glow-weak);
 }
 
-/* Mũi tên chuyển slide Prev / Next */
+/* Mũi tên chuyển slide Prev / Next — kính mờ */
 .hero-slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 54px;
-  background: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
+  width: 44px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   font-size: 20px;
   z-index: 10;
-  transition: background 0.2s ease;
+  transition: all var(--transition-fast);
   user-select: none;
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
 }
 
 .hero-slider-arrow:hover {
-  background: rgba(0, 0, 0, 0.75);
+  background: var(--color-surface-raised);
+  color: var(--color-primary);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--glow-weak);
 }
 
 .hero-slider-arrow--prev {
-  left: 10px;
+  left: 12px;
 }
 
 .hero-slider-arrow--next {
-  right: 10px;
+  right: 12px;
 }
 
-/* Chấm tròn chỉ số Slide (Dots) */
+/* Chấm tròn chỉ số Slide (Dots) — pill kéo dài khi active */
 .hero-slider-dots {
   position: absolute;
-  bottom: 12px;
+  bottom: 14px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -131,14 +175,15 @@
   width: 10px;
   height: 10px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(15, 23, 42, 0.35);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all var(--transition);
 }
 
 .hero-slider-dot.active {
   background: var(--color-primary);
   width: 26px;
+  box-shadow: var(--glow-weak);
 }
 
 /* ==========================================================================
@@ -149,19 +194,20 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   background: var(--color-surface);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: 16px;
   margin-bottom: var(--space-5);
   box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 899px) {
   .benefit-strip {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 599px) {
   .benefit-strip {
     grid-template-columns: 1fr;
   }
@@ -171,28 +217,46 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 6px 10px;
-  border-right: 1px solid var(--color-border);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
 }
 
-.benefit-item:last-child {
-  border-right: none;
+.benefit-item:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--glow-weak);
+  transform: translateY(-1px);
 }
 
 .benefit-icon {
   font-size: 26px;
   flex-shrink: 0;
+  /* Emoji đặt trong ô tròn tint màu nhấn */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.35));
 }
 
 .benefit-text h4 {
-  font-size: 13px;
+  font-family: var(--font-heading);
+  font-size: var(--font-sm);
   font-weight: 700;
   color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
 }
 
 .benefit-text p {
-  font-size: 12px;
-  color: var(--color-text-secondary);
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
 }
 
 /* ==========================================================================
@@ -200,10 +264,11 @@
    ========================================================================== */
 .flash-sale-box {
   background: var(--color-surface);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: 20px;
   margin-bottom: var(--space-6);
   box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
   border-top: 4px solid var(--color-flash);
 }
 
@@ -222,31 +287,38 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 20px;
-  font-weight: 800;
-  color: #c2410c;
+  font-family: var(--font-heading);
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text);
   text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 .flash-countdown {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: var(--font-sm);
   font-weight: 600;
-  color: #4b5563;
+  color: var(--color-text-secondary);
 }
 
 .countdown-pill {
-  background: #111827;
-  color: #ffffff;
-  font-family: monospace;
-  font-size: 14px;
+  /* Ô số lớn kiểu kính mờ / viền gradient */
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.8), rgba(226, 232, 240, 0.8));
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 1.1rem + ((1vw - 3.2px) * 0.2), 20px);
   font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 4px;
-  min-width: 30px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  min-width: 44px;
   text-align: center;
+  border: 1px solid var(--color-border);
+  box-shadow: inset 0 0 12px rgba(34, 211, 238, 0.15);
+  font-variant-numeric: tabular-nums;
+  backdrop-filter: blur(6px);
 }
 
 /* Tabs danh mục ưu đãi */
@@ -257,6 +329,7 @@
   scrollbar-width: none;
   margin-bottom: 16px;
   padding-bottom: 4px;
+  scroll-snap-type: x mandatory;
 }
 
 .category-tabs::-webkit-scrollbar {
@@ -266,24 +339,27 @@
 .tab-btn {
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  font-size: 13px;
+  font-size: var(--font-sm);
   font-weight: 600;
   background: var(--color-surface-soft);
   color: var(--color-text-secondary);
   border: 1px solid var(--color-border);
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
+  scroll-snap-align: start;
 }
 
 .tab-btn:hover {
-  border-color: #cbd5e1;
+  border-color: var(--color-border-hover);
   color: var(--color-text);
+  background: var(--color-surface-raised);
 }
 
 .tab-btn.active {
   background: var(--color-primary);
-  color: #000000;
+  color: var(--color-on-primary);
   border-color: var(--color-primary);
+  box-shadow: var(--glow-weak);
 }
 
 /* Nút xem thêm */
@@ -291,7 +367,7 @@
   text-align: center;
   margin-top: 18px;
   padding-top: 14px;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid var(--color-border);
 }
 
 .btn-see-more {
@@ -299,32 +375,51 @@
   align-items: center;
   gap: 6px;
   padding: 10px 24px;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  font-size: 13px;
+  font-size: var(--font-sm);
   font-weight: 600;
-  color: var(--color-link);
-  transition: all 0.2s ease;
+  color: var(--color-text);
+  transition: all var(--transition-fast);
 }
 
 .btn-see-more:hover {
-  background: var(--color-cta-soft);
-  border-color: var(--color-link);
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-hover);
+  color: var(--color-primary);
 }
 
 /* ==========================================================================
-   4. DEAL SECTION — "DEAL ĐẸP CÓ HẠN" (NỀN ĐỎ ĐẶC TRƯNG TGDD)
+   4. DEAL SECTION — "DEAL ĐẸP CÓ HẠN" (nền sáng, viền/ánh gradient đỏ-hồng)
    ========================================================================== */
 .deal-section {
-  background: var(--color-deal);
-  border-radius: var(--radius-md);
+  background: radial-gradient(circle at top left, rgba(244, 63, 94, 0.08), transparent 40%),
+              var(--color-surface);
+  border-radius: var(--radius-lg);
   padding: 20px 16px;
   margin-bottom: var(--space-6);
-  box-shadow: 0 4px 16px rgba(196, 0, 20, 0.25);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.deal-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .deal-header {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -334,9 +429,12 @@
 }
 
 .deal-title {
-  font-size: 22px;
-  font-weight: 900;
-  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-text);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   display: flex;
@@ -346,44 +444,51 @@
 
 .deal-badge {
   background: var(--color-primary);
-  color: #000000;
-  font-size: 12px;
+  color: var(--color-on-primary);
+  font-size: var(--font-xs);
   font-weight: 800;
   padding: 3px 8px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
 }
 
 /* Tabs trong deal section */
 .deal-tabs .tab-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(241, 245, 249, 0.6);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
 }
 
 .deal-tabs .tab-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: var(--color-surface-raised);
+  color: var(--color-text);
 }
 
 .deal-tabs .tab-btn.active {
-  background: #ffffff;
-  color: var(--color-deal);
-  border-color: #ffffff;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
 }
 
 .btn-deal-more {
   display: inline-block;
   padding: 10px 28px;
-  background: #ffffff;
-  color: var(--color-deal);
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  font-size: 14px;
+  font-size: var(--font-base);
   font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all var(--transition-fast);
+  text-align: center;
 }
 
 .btn-deal-more:hover {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-hover);
+  color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--glow-weak);
 }
 
 /* ==========================================================================
@@ -404,31 +509,84 @@
 
 .mini-banner-card {
   position: relative;
-  aspect-ratio: 590 / 180;
+  /* Tỷ lệ ảnh gốc 1188x322 = 3.69:1 → khung khớp để ảnh không bị cắt */
+  aspect-ratio: 1188 / 322;
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 24px;
+  padding: 22px 26px;
   color: #ffffff;
   box-shadow: var(--shadow-card);
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-soft);
+  /* contain = ảnh hiện trọn vẹn, không mất chữ hai bên mép */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+}
+
+@media (max-width: 767px) {
+  .mini-banner-card {
+    aspect-ratio: 1188 / 322;
+    padding: 14px;
+  }
+}
+
+/* JS gán inline background-image (gradient + url ảnh banner).
+   Các pseudo-element bên dưới chỉ trang trí thêm, không che ảnh. */
+.mini-banner-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 14px);
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Ảnh banner đã chứa sẵn nội dung/tiêu đề. JS render <h3> rỗng khi data
+   không có title ⇒ ẩn toàn bộ vùng text để ảnh hiển thị nguyên vẹn,
+   tránh dòng "Khám phá ưu đãi..." đè lên artwork có sẵn chữ. */
+.mini-banner-card h3:empty,
+.mini-banner-card:has(h3:empty) > div {
+  display: none;
+}
+.mini-banner-card > div {
+  position: relative;
+  z-index: 2;
+  max-width: 70%;
+  padding: 0;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .mini-banner-card:hover {
   transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
 }
 
 .mini-banner-card h3 {
-  font-size: 18px;
+  font-family: var(--font-heading);
+  font-size: clamp(15px, 1rem + ((1vw - 3.2px) * 0.35), 19px);
   font-weight: 800;
-  margin-bottom: 6px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  margin-bottom: 4px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75), 0 0 2px rgba(0, 0, 0, 0.6);
+  line-height: 1.2;
 }
 
 .mini-banner-card p {
-  font-size: 13px;
+  font-size: var(--font-sm);
+  color: #ffffff;
   opacity: 0.95;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* ==========================================================================
@@ -436,17 +594,20 @@
    ========================================================================== */
 .popular-searches {
   background: var(--color-surface);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: 18px;
   margin-bottom: var(--space-6);
   box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
 }
 
 .popular-searches h4 {
-  font-size: 14px;
+  font-family: var(--font-heading);
+  font-size: var(--font-sm);
   font-weight: 700;
   margin-bottom: 12px;
-  color: #334155;
+  color: var(--color-text);
+  text-transform: uppercase;
 }
 
 .popular-tags-wrap {
@@ -461,13 +622,14 @@
   background: var(--color-surface-soft);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  font-size: 12px;
-  color: #475569;
-  transition: all 0.15s ease;
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
 }
 
 .popular-tag:hover {
-  background: #000000;
-  color: var(--color-primary);
-  border-color: #000000;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-weak);
 }
