@@ -28,27 +28,31 @@
   flex: 0 0 100%;
   width: 100%;
   position: relative;
-  /* Khớp tỷ lệ ảnh banner thật (1036x450 ≈ 2.3:1) để không bị crop */
-  aspect-ratio: 1036 / 450;
-  min-height: 220px;
+  /* Chiều cao tự co theo tỷ lệ ảnh thực (do JS gán --hero-ratio).
+     Fallback 2.3:1 khớp bộ ảnh 1036x450 mặc định. */
+  aspect-ratio: var(--hero-ratio, 1036 / 450);
+  min-height: 180px;
   display: block;
+  background-color: var(--color-surface-soft);
 }
 
 .hero-slide__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* contain = ảnh luôn hiển thị TRỌN VẸN đúng tỷ lệ, không bị cắt chữ,
+     dù tỷ lệ ảnh khác nhau giữa các slide. */
+  object-fit: contain;
   object-position: center;
   display: block;
   position: relative;
   z-index: 2;
 }
 
-/* Mobile: banner cần cao hơn để chữ trong ảnh không bị bóp méo */
+/* Mobile: giữ nguyên tỷ lệ ảnh thực, chỉ đặt sàn chiều cao để không quá dẹt */
 @media (max-width: 599px) {
   .hero-slide {
-    aspect-ratio: 16 / 9;
-    min-height: 180px;
+    aspect-ratio: var(--hero-ratio, 16 / 9);
+    min-height: 150px;
   }
 }
 
@@ -505,7 +509,8 @@
 
 .mini-banner-card {
   position: relative;
-  aspect-ratio: 780 / 260;
+  /* Tỷ lệ ảnh gốc 1188x322 = 3.69:1 → khung khớp để ảnh không bị cắt */
+  aspect-ratio: 1188 / 322;
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -515,8 +520,9 @@
   box-shadow: var(--shadow-card);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   border: 1px solid var(--color-border);
-  background-color: var(--color-surface);
-  background-size: cover;
+  background-color: var(--color-surface-soft);
+  /* contain = ảnh hiện trọn vẹn, không mất chữ hai bên mép */
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   isolation: isolate;
@@ -524,14 +530,8 @@
 
 @media (max-width: 767px) {
   .mini-banner-card {
-    aspect-ratio: 780 / 300;
-    padding: 18px;
-  }
-}
-
-@media (max-width: 400px) {
-  .mini-banner-card {
-    aspect-ratio: 16 / 7;
+    aspect-ratio: 1188 / 322;
+    padding: 14px;
   }
 }
 

@@ -23,6 +23,81 @@ export const BRANDS = {
 export const DEFAULT_PRODUCTS = [
   // --- ĐIỆN THOẠI ---
   {
+    id: 'iphone-18-pro-max-256gb',
+    name: 'iPhone 18 Pro Max 256GB',
+    categoryId: 'phone',
+    brand: 'Apple',
+    price: 41990000,
+    originalPrice: 44990000,
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-18-pro-max-01.jpg',
+    images: [
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-18-pro-max-01.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-18-pro-max-06.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_01.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_02.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_03.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone_18_pro_max_04.jpg'
+    ],
+    rating: 4.9,
+    reviewCount: 128,
+    soldCount: 620,
+    specs: ['6.9 inch OLED', 'ProMotion 120Hz', 'Apple A20 Pro', '256GB', 'Camera 48MP x3'],
+    labels: ['Hàng mới', 'GIÁ SỐC', 'Trả góp 0%'],
+    isFlashSale: true,
+    flashSaleProgress: 86,
+    isFeatured: true,
+    stock: 18,
+    description: 'Màn hình OLED Super Retina XDR 6,9 inch ProMotion 120Hz độ sáng 3.000 nit, chip A20 Pro 2nm, bộ 3 camera 48MP zoom quang 4x, pin xem video 43 giờ, khung nhôm nguyên khối kháng nước IP68.'
+  },
+  {
+    id: 'samsung-galaxy-z8-series-256gb',
+    name: 'Samsung Galaxy Z Fold 8 Ultra 5G 12GB/256GB',
+    categoryId: 'phone',
+    brand: 'Samsung',
+    price: 47990000,
+    originalPrice: 52990000,
+    image: 'https://media-asset.cellphones.com.vn/dashboard-v2/uploads/content-uploads/samsung-galaxy-z-fold8-ultra-5g-12gb-256gb-240773.jpg',
+    images: [
+      'https://media-asset.cellphones.com.vn/dashboard-v2/uploads/content-uploads/samsung-galaxy-z-fold8-ultra-5g-12gb-256gb-240773.jpg',
+      'https://media-asset.cellphones.com.vn/dashboard-v2/uploads/content-uploads/samsung-galaxy-z-fold8-ultra-5g-12gb-256gb-800084.jpg'
+    ],
+    rating: 4.8,
+    reviewCount: 76,
+    soldCount: 340,
+    specs: ['8.0 inch AMOLED 2X', 'Snapdragon 8 Elite Gen 5', '256GB', '12GB RAM', 'Camera 200MP'],
+    labels: ['Galaxy AI', 'Hàng mới', 'Trả góp 0%'],
+    isFlashSale: true,
+    flashSaleProgress: 72,
+    isFeatured: true,
+    stock: 12,
+    description: 'Điện thoại gập cao cấp nhất dòng Z8, màn chính 8.0 inch 120Hz 3.000 nit, màn phụ 6.5 inch, chip Snapdragon 8 Elite Gen 5 3nm, camera chính 200MP quay 8K, pin 5.000mAh sạc 45W, thân máy chỉ 4.1mm khi mở.'
+  },
+  {
+    id: 'iphone-duo-256gb',
+    name: 'iPhone Duo 256GB',
+    categoryId: 'phone',
+    brand: 'Apple',
+    price: 64990000,
+    originalPrice: 69990000,
+    image: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-01.jpg',
+    images: [
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-01.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-02.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-03.jpg',
+      'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-duo-04.jpg'
+    ],
+    rating: 4.9,
+    reviewCount: 45,
+    soldCount: 180,
+    specs: ['Trong 7.6 inch', 'Ngoài 5.4 inch', 'Chip A20 Pro', '256GB', 'Camera 48MP'],
+    labels: ['Độc quyền', 'GIÁ SỐC', 'Trả góp 0%'],
+    isFlashSale: true,
+    flashSaleProgress: 64,
+    isFeatured: true,
+    stock: 8,
+    description: 'iPhone màn hình gập đầu tiên với màn trong 7.6 inch và màn ngoài 5.4 inch Super Retina XDR 120Hz, chip A20 Pro, camera 48MP Fusion, hai viên pin lithium-ion, 2 eSIM, bề mặt Nano-texture chống chói.'
+  },
+  {
     id: 'iphone-16-pro-max-256gb',
     name: 'iPhone 16 Pro Max 256GB',
     categoryId: 'phone',
